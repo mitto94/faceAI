@@ -10,16 +10,26 @@
     "@types/node": "^12.20.10",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
+    "face-api.js": "^0.22.2",
+    "primeicons": "^4.1.0",
+    "primereact": "^6.3.0",
+    "query-string": "^7.0.0",
     "react": "^17.0.2",
+    "react-camera-pro": "^1.1.0",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.1",
+    "styled-components": "^5.2.3",
     "typescript": "^4.2.4",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
+    "@types/styled-components": "^5.1.9"
   }
 }
