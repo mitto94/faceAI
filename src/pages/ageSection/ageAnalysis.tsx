@@ -12,7 +12,7 @@ interface photoInfo {
 	emotion: Array<string>;
 }
 
-const ageAnalysis: React.FC = ({history}: any) => {
+const AgeAnalysis = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
 	const [photoInfo, setPhotoInfo] = React.useState({
 		gender: "",
@@ -125,4 +125,4 @@ const ageAnalysis: React.FC = ({history}: any) => {
 	);
 };
 
-export default ageAnalysis;
+export default AgeAnalysis;

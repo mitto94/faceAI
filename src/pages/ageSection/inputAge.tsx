@@ -4,7 +4,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Color } from '../../faceAnalysis';
 
-const inputAge: React.FC = ({history}: any) => {
+const InputAge: React.FC = ({history}: any) => {
 	// const history = useHistory();
 	const [age, setAge] = React.useState();
 	// history.push({
@@ -36,4 +36,4 @@ const inputAge: React.FC = ({history}: any) => {
     );
 };
 
-export default inputAge;
+export default InputAge;

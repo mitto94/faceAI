@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as faceapi from 'face-api.js';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Home, Loading,
-	ageAnalysis, getPicture, inputAge,
-	emotionAnalysis, getPicture2,
+	AgeAnalysis, GetPicture, InputAge,
+	EmotionAnalysis, getPicture2,
 	getPicture3, inputRelationship, rAnalysis } from './pages';
 import Menu from "./components/Menu";
 import 'primereact/resources/themes/saga-blue/theme.css';
@@ -40,12 +40,12 @@ const App: React.FC = () => {
 				<Switch>
 					<Route path="/loading" component={Loading} />
 
-					<Route path="/age" component={inputAge} />
-					<Route path="/age_photo" component={getPicture} />
-					<Route path="/age_analysis" component={ageAnalysis} />
+					<Route path="/age" component={InputAge} />
+					<Route path="/age_photo" component={GetPicture} />
+					<Route path="/age_analysis" component={AgeAnalysis} />
 
 					<Route path="/emotion" component={getPicture2} />
-					<Route path="/emotion_analysis" component={emotionAnalysis} />
+					<Route path="/emotion_analysis" component={EmotionAnalysis} />
 
 					<Route path="/relation" component={inputRelationship} />
 					<Route path="/relation_photo" component={getPicture3} />

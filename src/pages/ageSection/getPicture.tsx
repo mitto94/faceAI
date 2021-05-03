@@ -16,7 +16,7 @@ export interface CameraProps {
 			canvas?: string;
 	};
 }
-const getPicture: React.FC = ({history}: any) => {
+const GetPicture = ({history}: any) => {
 	const [numberOfCameras, setNumberOfCameras] = React.useState(0);
 	const [showImage, setShowImage] = React.useState(false);
 	const camera = React.useRef<CameraType>(null);
@@ -24,7 +24,6 @@ const getPicture: React.FC = ({history}: any) => {
 	const [showCamera, setShowCamera] = React.useState(false);
 	const location: any = useLocation();
 	const {from, age} = location?.state;
-	console.log("from", from);
 	const takePicture = (e?: any) => {
 		setShowCamera(true);
 	}
@@ -88,7 +87,10 @@ const getPicture: React.FC = ({history}: any) => {
 									case "second":
 										history.push({
 											pathname: "/emotion_analysis",
-											state: {photo}
+											state: {
+												photo,
+												from: "second"
+											}
 										})
 										break;
 									case "third":
@@ -118,7 +120,7 @@ const getPicture: React.FC = ({history}: any) => {
 	);
 };
 
-export default getPicture;
+export default GetPicture;
 
 const Wrapper = styled.div`
   position: fixed;
