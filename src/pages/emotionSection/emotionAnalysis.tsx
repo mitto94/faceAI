@@ -5,7 +5,7 @@ import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import { AgeSentence, Color } from '../../faceAnalysis';
 import { Chart } from 'primereact/chart';
-import {Doughnut} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 const EmotionAnalysis: React.FC = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
@@ -80,7 +80,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
             case "sad": return "blue";
         };
     }
-    let num = [{label: 'My dataset', data: [] as any, backgroundColor: [] as any}];
+    let num = [{label: '나의 감정', data: [] as any, backgroundColor: [] as any}];
     let labels = [] as any;
     emotionHash.forEach((item) => {
         num[0].data.push(item.value);
@@ -97,7 +97,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
     let lightOptions = {
         legend: {
             labels: {
-                fontColor: '#495057'
+                fontColor: 'black'
             }
         },
         scale: {
@@ -117,13 +117,10 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center"}}>
+							<div style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
 								{emotionChart.labels.length !== 0
 								&& 
-								// <div className="card">
-								// 	<Chart type="polarArea" data={emotionChart} options={lightOptions} />
-								// </div>
-								<Doughnut data={emotionChart} type={""}/>
+								<Bar data={emotionChart} type={""}/>
 								}
 								<label>{`당신의 기분은 ${emotionHash[0].name}이거나 ${emotionHash[1].name} 일것 같아요`}</label>
 							</div>
