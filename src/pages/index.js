@@ -8,5 +8,5 @@ export { default as EmotionAnalysis } from './emotionSection/emotionAnalysis';
 export { default as getPicture2 } from './emotionSection/getPicture2';
 
 export { default as getPicture3 } from './relationSection/getPicture3';
-export { default as inputRelationship } from './relationSection/inputRelationship';
+export { default as InputRelationship } from './relationSection/inputRelationship';
 export { default as rAnalysis } from './relationSection/rAnalysis';

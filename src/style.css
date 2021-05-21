@@ -7,6 +7,14 @@
 	border-radius: 10rem !important;
 }
 
+.pictureBtn {
+  font-weight: 700 !important; 
+  width: 7rem !important;
+  font-size: 3rem !important;
+  color: gray !important;
+  box-shadow: 1px 1px 1px 1px !important;
+}
+
 .container-ct {
 	width: 100vw;
 	height: 100vh;
@@ -70,9 +78,11 @@
 .face-btn {
 	/* background-color: red; */
 	border: 2px solid white;
-	width: 50vw;
-	height: 25%;
+	width: 70vw;
+	height: 35%;
 	color: white;
+  font-size: 1.3rem;
+  border-radius: 15px;
 	/* color: #fff; */
 }
 .face-btn:hover {
@@ -125,7 +135,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(15px);
+    transform: translateY(5px);
   }
 }
 

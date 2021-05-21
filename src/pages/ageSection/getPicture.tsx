@@ -4,19 +4,9 @@ import { Button } from 'primereact/button';
 import {Camera, CameraType } from "react-camera-pro";
 import styled from 'styled-components';
 import { Color } from '../../faceAnalysis';
-
-export interface CameraProps {
-	facingMode?: any;
-	aspectRatio?: any;
-	numberOfCamerasCallback?(numberOfCameras: number): void;
-	errorMessages?: {
-			noCameraAccessible?: string;
-			permissionDenied?: string;
-			switchCamera?: string;
-			canvas?: string;
-	};
-}
+import SidebarComponent from '../../components/Sidebar';
 const GetPicture = ({history}: any) => {
+	const [visible, setVisible] = React.useState(false);
 	const [numberOfCameras, setNumberOfCameras] = React.useState(0);
 	const [showImage, setShowImage] = React.useState(false);
 	const camera = React.useRef<CameraType>(null);
@@ -27,18 +17,68 @@ const GetPicture = ({history}: any) => {
 	const takePicture = (e?: any) => {
 		setShowCamera(true);
 	}
+	const onFileUpload = (event: any) => {
+		event.preventDefault();
+		let reader = new FileReader();
+		let file = event.target.files[0];
+		reader.onloadend = () => {
+			console.log("image", reader.result)
+			let photo = reader.result
+			switch (from) {
+				case "first":
+					history.push({
+						pathname: "/age_analysis",
+						state: {
+							photo,
+							age,
+							from: "first"
+						}
+					})
+					break;
+				case "second":
+					history.push({
+						pathname: "/emotion_analysis",
+						state: {
+							photo,
+							from: "second"
+						}
+					})
+					break;
+			}
+		}
+		reader.readAsDataURL(file);
+	}
+	const getAlbum = (event: any) => {
+		let btn = document.getElementById("e_album");
+		btn?.click();
+	}
 	return (
 		<div>
 		{
 			!showCamera 
-			? <div>
-				<div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "10%", background: Color[from], color: "white", fontSize: "1.25rem", fontWeight: 600}}>AI가 보는 나의 얼굴</div>
-				<div className="container-ct" style={{backgroundColor: Color[from], filter: "brightness(1.4)"}}>
-					<Button onClick={takePicture} label="Take Picture" style={{fontWeight: 700}} className="m-3 p-4 w-25 p-button-outlined p-button-info" />
-					<Button label="Get album" style={{fontWeight: 700}} className="m-3 p-4 w-25 p-button-outlined p-button-success" />
+			? <div style={{height: "100vh"}}>
+				<div className="container" style={{background: `${from === "first" ? Color.zero : Color.second}`, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+					<div style={{width: "2rem"}}></div>
+					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>{from === "first" ? "AI로 얼굴나이 확인하기" : "AI가 보는 나의 감정"}</div>
+					<SidebarComponent />
+				</div>				<div className="container" style={{height: "90%", backgroundColor: Color[from], filter: "brightness(1.4)", flexDirection: "column"}}>
+					<div style={{display: "flex", justifyContent: "center", fontFamily: "Sunflower, sans-serif"}}>
+						<div className="container" style={{flexDirection: "column"}}>
+							<Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
+							<div style={{margin: ".5rem", fontSize: "1.5rem"}}>카메라</div>
+						</div>
+						<div className="container" style={{flexDirection: "column"}}>
+							<Button icon="far fa-images" className="mt-3 p-4 p-button-outlined p-button-success pictureBtn" 
+							onClick={getAlbum} />
+							<div style={{margin: ".5rem", fontSize: "1.5rem"}}>앨범</div>
+						</div>
+						<input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
+						style={{display: "none"}}></input>
+                    </div>
+                    <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
 				</div>
 			</div>
-			: 
+			:
 				<Wrapper>
 				{showImage ? (
 					<FullScreenImagePreview

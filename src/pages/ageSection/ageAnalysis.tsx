@@ -4,20 +4,13 @@ import Loading from '../Loading';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import { AgeSentence, Color } from '../../faceAnalysis';
-import { Card } from 'primereact/card';
-
-interface photoInfo {
-	gender?: string;
-	age?: number;
-	emotion: Array<string>;
-}
-
+import SidebarComponent from '../../components/Sidebar';
+import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
 const AgeAnalysis = ({history}: any) => {
+	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
 	const [photoInfo, setPhotoInfo] = React.useState({
-		gender: "",
 		age: 0,
-		emotion: [],
 		finish: false
 	})
 	const location: any = useLocation();
@@ -27,34 +20,37 @@ const AgeAnalysis = ({history}: any) => {
 	let age = location?.state?.age;
 	let tag = false;
 	let imageRef: any = React.createRef();
+	const pathname = location.pathname
 
 	React.useEffect(() => {
 		const getAi = async () => {
 			await Promise.all([
-				faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-				faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-				faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-				faceapi.nets.faceExpressionNet.loadFromUri('/models'),
 				faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
 				faceapi.nets.ageGenderNet.loadFromUri("/models")
 			])
 			setShow(true);
 		}
 		getAi();
+		// (window as any).Kakao.init("1b6c83e35031c1aebb5bd64470cacea7");
+		// {(window as any).Kakao.Link.createDefaultButton({
+		// 	container: "shareBtn",
+
+		// })}
 	}, [])
 	React.useEffect(() => {
 		if (show) {
 			const getAnalysis = async () => {
 				imageRef.src = photo;
-				const canvas2: any = await faceapi.detectSingleFace(imageRef as any).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor();
+				// const canvas2: any = await faceapi.detectSingleFace(imageRef as any).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor();
+				const canvas2: any = await faceapi.detectSingleFace(imageRef as any).withAgeAndGender();
 				if (canvas2 === undefined) {
 					await confirm();
 					return null;
 				} 
 				setPhotoInfo({
-					gender: canvas2.gender,
+					// gender: canvas2.gender,
 					age: parseInt(canvas2.age),
-					emotion: canvas2.expressions,
+					// emotion: canvas2.expressions,
 					finish: true
 				})
 			}
@@ -66,54 +62,55 @@ const AgeAnalysis = ({history}: any) => {
 	const confirm = () => {
     confirmDialog({
         message: '얼굴을 인식하지 못했습니다. 사진을 다시 찍으시겠습니까?',
-        header: 'Confirmation',
+        header: '혹시.. 천사신가요?',
         icon: 'pi pi-exclamation-triangle',
-        accept: () => history.push("age")
+        accept: () => history.push("age"),
+        reject: () => history.push("/"),
+        onHide: () => history.push("/"),
     });
 	}
-	let emotionHash = Object.keys(photoInfo.emotion).map(element => {
-		return {name: element , value: Math.sqrt(Math.sqrt(Math.sqrt(photoInfo.emotion[element as any])))}
-	});
-	emotionHash.sort((a, b) => {
-		return b.value - a.value;
-	})
 	const randomItem = (a: Array<string>) => {
 		return a[Math.floor(Math.random() * a.length)];
 	}
 	return (
-			<>
-				<div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "10%", background: Color[from], color: "white", fontSize: "1.25rem", fontWeight: 600}}>AI가 보는 나의 얼굴</div>
-				<div style={{backgroundColor: Color[from], width: "100vw", height: "100vh", filter: "brightness(1.4)"}}> 
+			<div style={{height: "100%", overflow: "hidden"}}>
+				<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+					<div style={{width: "2rem"}}></div>
+					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
+					<SidebarComponent />
+				</div>				<div style={{backgroundColor: Color[from], width: "100vw", height: "90%", filter: "brightness(1.4)"}}> 
 					<>
-						<div className="container" style={{maxHeight: "50vh", height: "60vh", display: `${photoInfo.finish ? "flex" : "none"}`}}>
-							<img ref={(ref) => imageRef = ref} style={{width: "50vw", textAlign: "center"}} crossOrigin='anonymous'/>
+						<div className="container" style={{maxHeight: "40vh", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
+							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center"}} crossOrigin='anonymous'/>
 						</div>
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center"}}>
-								{/* <Card title="실제 나이" style={{width: "45vw", fontSize: "1rem"}}>
-										Content
-								</Card>
-								<Card title="AI 나이 측정"  style={{width: "45vw"}}>
-										Content
-								</Card> */}
-								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999"}}>
-									<div style={{fontWeight: 700, fontSize: "1.3rem", margin: "0.75rem"}}>실제 나이</div>
-									<span style={{fontWeight: 600, fontSize: "1.3rem"}}>{age} 살</span>
+							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "Stylish, sans-serif"}}>
+								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)"}}>
+									<div style={{fontWeight: 600, fontSize: "1.6rem", margin: "0.55rem"}}>실제 나이</div>
+									<span style={{fontWeight: 550, fontSize: "1.6rem"}}>{age} 살</span>
 								</div>
-								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999"}}>
-									<div style={{fontWeight: 700, fontSize: "1.3rem", margin: "0.75rem"}}>예측 나이</div>
-									<span style={{fontWeight: 600, fontSize: "1.3rem", color: "purple"}}>{photoInfo.age} 살</span>
+								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)"}}>
+									<div style={{fontWeight: 600, fontSize: "1.6rem", margin: "0.55rem"}}>예측 나이</div>
+									<span style={{fontWeight: 550, fontSize: "1.6rem", color: "purple"}}>{photoInfo.age} 살</span>
 								</div>
-								{/* <label>{`당신은 ${photoInfo.gender} 이에요`}</label> */}
-								{/* <label>{`당신은 ${photoInfo.age}살 처럼 보이는 군요`}</label> */}
-								{/* <label>{`당신의 기분은 ${emotionHash[0].name}이거나 ${emotionHash[1].name} 일것 같아요`}</label> */}
 							</div>
 							<div style={{display: "flex", flexDirection: "column", width: "100vw", alignItems: "center"}}>
-								<div className="ment">{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</div>
-                {/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-                <div className="addthis_inline_share_toolbox"></div>
+								<pre className="container" style={{width: "100vw", height: "12.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
+                				<div className="addthis_inline_share_toolbox"></div>
+							</div>
+							<div style={{display: "flex", justifyContent: "center"}}>
+								<FacebookShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+									<FacebookIcon size={40} round={true}/>
+								</FacebookShareButton>
+								<TwitterShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+									<TwitterIcon size={40} round={true}/>
+								</TwitterShareButton>
+								<InstapaperShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+									<InstapaperIcon size={40} round={true}/>
+								</InstapaperShareButton>
+								
 							</div>
 						</>
 						:
@@ -121,7 +118,7 @@ const AgeAnalysis = ({history}: any) => {
 						}
 					</>
 				</div>
-			</>
+			</div>
 	);
 };
 
