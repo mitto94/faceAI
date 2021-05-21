@@ -102,13 +102,13 @@ const RAnalysis = ({history}: any) => {
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
 						<pre className="container" style={{width: "100vw", height: "9vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{Relation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center"}}>
-								<FacebookShareButton url="https://stackoverflow.com/" style={{margin: "0.55rem"}}>
+								<FacebookShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
-								<TwitterShareButton url="https://stackoverflow.com/" style={{margin: "0.55rem"}}>
+								<TwitterShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<TwitterIcon size={40} round={true}/>
 								</TwitterShareButton>
-								<InstapaperShareButton url="https://stackoverflow.com/" style={{margin: "0.55rem"}}>
+								<InstapaperShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<InstapaperIcon size={40} round={true}/>
 								</InstapaperShareButton>
 							</div>

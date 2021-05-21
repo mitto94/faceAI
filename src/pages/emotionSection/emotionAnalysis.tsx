@@ -141,13 +141,13 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
-								<FacebookShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+								<FacebookShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
-								<TwitterShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+								<TwitterShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
 									<TwitterIcon size={40} round={true}/>
 								</TwitterShareButton>
-								<InstapaperShareButton url="https://stackoverflow.com/" style={{margin: "0.75rem"}}>
+								<InstapaperShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
 								</InstapaperShareButton>
 							</div>
