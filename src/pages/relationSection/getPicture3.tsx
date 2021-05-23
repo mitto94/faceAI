@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import {Camera, CameraType } from "react-camera-pro";
 import styled from 'styled-components';
@@ -27,9 +27,7 @@ const GetPicture = ({history}: any) => {
 	const [showCamera, setShowCamera] = React.useState(false);
 	const location: any = useLocation();
   let image1: any = React.createRef();
-  // let image1 = React.createRef<HTMLDivElement>();
   let image2: any = React.createRef();
-	// const {from, age} = location?.state;
 	const age = location?.state?.age;
 	const from = location?.state?.from;
   const relation = location?.state?.relation;

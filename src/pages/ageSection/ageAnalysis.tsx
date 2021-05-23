@@ -95,9 +95,12 @@ const AgeAnalysis = ({history}: any) => {
 								<pre className="container" style={{width: "100vw", height: "12.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
-								
-								<div className="addthis_inline_share_toolbox"></div>
-								{/* <FacebookShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+							
+							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
+                			<div className="addthis_inline_share_toolbox_nwjf"></div>
+            
+            
+            								{/* <FacebookShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
 								<TwitterShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>

@@ -104,8 +104,10 @@ const RAnalysis = ({history}: any) => {
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
 						<pre className="container" style={{width: "100vw", height: "9vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{Relation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center"}}>
-							<div className="addthis_inline_share_toolbox"></div>
-								{/* <FacebookShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
+
+						{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
+						<div className="addthis_inline_share_toolbox_nwjf"></div>
+            								{/* <FacebookShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
 								<TwitterShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
