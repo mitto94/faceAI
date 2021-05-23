@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Color, Relation } from '../../faceAnalysis';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import Loading from '../Loading';
 import SidebarComponent from '../../components/Sidebar';
-import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share";
+// import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share";
 const RAnalysis = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
 	const [data, setData] = React.useState({
@@ -75,7 +75,9 @@ const RAnalysis = ({history}: any) => {
 	return (
         <div style={{height: "100%", display: "flex", flexDirection: "column", width: "100%"}}>
 			<div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
-				<div style={{width: "2rem"}}></div>
+				<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
+					<i className="fas fa-home" onClick={() => history.push("/")}></i>
+				</div>
 				<div className="container" style={{color: "white", fontSize: "1.7rem", fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
 				<SidebarComponent />
 			</div>
@@ -102,7 +104,8 @@ const RAnalysis = ({history}: any) => {
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
 						<pre className="container" style={{width: "100vw", height: "9vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{Relation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center"}}>
-								<FacebookShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
+							<div className="addthis_inline_share_toolbox"></div>
+								{/* <FacebookShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
 								<TwitterShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
@@ -110,7 +113,7 @@ const RAnalysis = ({history}: any) => {
 								</TwitterShareButton>
 								<InstapaperShareButton url="https://ulpago.netlify.app/relation_analysis" style={{margin: "0.55rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton>
+								</InstapaperShareButton> */}
 							</div>
 					</>
 					:

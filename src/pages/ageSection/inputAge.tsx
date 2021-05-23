@@ -1,18 +1,13 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
+// import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Color } from '../../faceAnalysis';
-import { Sidebar } from 'primereact/sidebar';
 import SidebarComponent from '../../components/Sidebar';
 
 const InputAge: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [age, setAge] = React.useState();
-	// history.push({
-	// 	pathname: "/age_photo",
-	// 	state: {photo}
-	// })
     return (
 			<div style={{height: "100vh", overflow: "hidden"}}>
         		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
@@ -34,7 +29,6 @@ const InputAge: React.FC = ({history}: any) => {
 							})}}
 							style={{width: "4.2rem", height: "4rem", marginLeft: "0.5rem", paddingTop: "0.25rem", background: Color["zero"], border: "none"}}
 							label="입력"
-							// className="p-button-success"
 						/>
 					</div>
 					<pre className="container" style={{width: "100vw", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>

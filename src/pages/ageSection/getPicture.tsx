@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { Button } from 'primereact/button';
 import {Camera, CameraType } from "react-camera-pro";
 import styled from 'styled-components';
@@ -22,7 +22,6 @@ const GetPicture = ({history}: any) => {
 		let reader = new FileReader();
 		let file = event.target.files[0];
 		reader.onloadend = () => {
-			console.log("image", reader.result)
 			let photo = reader.result
 			switch (from) {
 				case "first":

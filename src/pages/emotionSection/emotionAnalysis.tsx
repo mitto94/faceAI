@@ -84,7 +84,6 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
     let num = [{label: '나의 감정', data: [] as any, backgroundColor: [] as any}];
     let labels = [] as any;
     emotionHash.forEach((item) => {
-		console.log("num[0].data", item.name);
 		let data;
 		switch(item.name) {
 			case "surprised": data = "놀람"; break;
@@ -118,8 +117,9 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 	return (
 			<div style={{height: "100%"}}>
 				<div className="container" style={{background: Color.second, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
-					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
+					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
+						<i className="fas fa-home" onClick={() => history.push("/")}></i>
+					</div>					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
 				<div style={{backgroundColor: Color[from], width: "100vw", height: "90%", filter: "brightness(1.4)"}}> 
@@ -141,7 +141,8 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
-								<FacebookShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
+								<div className="addthis_inline_share_toolbox"></div>
+								{/* <FacebookShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
 								<TwitterShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
@@ -149,7 +150,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 								</TwitterShareButton>
 								<InstapaperShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton>
+								</InstapaperShareButton> */}
 							</div>
 						</>
 						:

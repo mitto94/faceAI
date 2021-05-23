@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
+// import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
 import SidebarComponent from '../../components/Sidebar';
 import { Color } from '../../faceAnalysis';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
-import { Button } from 'primereact/button';
+// import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
+// import { Button } from 'primereact/button';
 import { Color } from "../faceAnalysis";
 import SidebarComponent from '../components/Sidebar';
 

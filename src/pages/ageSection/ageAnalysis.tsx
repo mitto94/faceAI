@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Link, BrowserRouter as Router, useHistory, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import Loading from '../Loading';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import { AgeSentence, Color } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
-import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
+// import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
 const AgeAnalysis = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
@@ -31,26 +31,18 @@ const AgeAnalysis = ({history}: any) => {
 			setShow(true);
 		}
 		getAi();
-		// (window as any).Kakao.init("1b6c83e35031c1aebb5bd64470cacea7");
-		// {(window as any).Kakao.Link.createDefaultButton({
-		// 	container: "shareBtn",
-
-		// })}
 	}, [])
 	React.useEffect(() => {
 		if (show) {
 			const getAnalysis = async () => {
 				imageRef.src = photo;
-				// const canvas2: any = await faceapi.detectSingleFace(imageRef as any).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor();
 				const canvas2: any = await faceapi.detectSingleFace(imageRef as any).withAgeAndGender();
 				if (canvas2 === undefined) {
 					await confirm();
 					return null;
 				} 
 				setPhotoInfo({
-					// gender: canvas2.gender,
 					age: parseInt(canvas2.age),
-					// emotion: canvas2.expressions,
 					finish: true
 				})
 			}
@@ -75,10 +67,13 @@ const AgeAnalysis = ({history}: any) => {
 	return (
 			<div style={{height: "100%", overflow: "hidden"}}>
 				<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
-					<div style={{width: "2rem"}}></div>
+					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
+						<i className="fas fa-home" onClick={() => history.push("/")}></i>
+					</div>
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
 					<SidebarComponent />
-				</div>				<div style={{backgroundColor: Color[from], width: "100vw", height: "90%", filter: "brightness(1.4)"}}> 
+				</div>		
+				<div style={{backgroundColor: Color[from], width: "100vw", height: "90%", filter: "brightness(1.4)"}}> 
 					<>
 						<div className="container" style={{maxHeight: "40vh", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
 							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center"}} crossOrigin='anonymous'/>
@@ -98,10 +93,11 @@ const AgeAnalysis = ({history}: any) => {
 							</div>
 							<div style={{display: "flex", flexDirection: "column", width: "100vw", alignItems: "center"}}>
 								<pre className="container" style={{width: "100vw", height: "12.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
-                				<div className="addthis_inline_share_toolbox"></div>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
-								<FacebookShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+								
+								<div className="addthis_inline_share_toolbox"></div>
+								{/* <FacebookShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
 								<TwitterShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
@@ -109,7 +105,7 @@ const AgeAnalysis = ({history}: any) => {
 								</TwitterShareButton>
 								<InstapaperShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton>
+								</InstapaperShareButton> */}
 							</div>
 						</>
 						:
