@@ -7,6 +7,7 @@ import { AgeSentence, Color } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
 import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
 import { Button } from 'primereact/button';
+import html2canvas from 'html2canvas';
 const AgeAnalysis = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
@@ -75,7 +76,7 @@ const AgeAnalysis = ({history}: any) => {
 		return a[Math.floor(Math.random() * a.length)];
 	}
 	return (
-			<div style={{height: "100%", overflow: "hidden"}}>
+			<div id="capture" style={{height: "100%", overflow: "hidden"}}>
 				<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
@@ -118,11 +119,12 @@ const AgeAnalysis = ({history}: any) => {
 									<InstapaperIcon size={40} round={true}/>
 								</InstapaperShareButton>
 								<Button onClick={(e?) => {
-									navigator.share({
-										title: document.title,
-										text: "Hello",
-										url: window.location.href
-									})
+									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
+										let a = document.createElement("a");
+										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+										a.download = "out.jpg";
+										a.click();
+									});
 								}}></Button>
 							</div>
 						</>
