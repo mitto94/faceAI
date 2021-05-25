@@ -108,7 +108,7 @@ const AgeAnalysis = ({history}: any) => {
 							<div style={{display: "flex", justifyContent: "center"}}>
 							
 							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-                			<div className="addthis_inline_share_toolbox_nwjf"></div>
+                			{/* <div className="addthis_inline_share_toolbox_nwjf"></div>
             					<FacebookShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
@@ -117,8 +117,8 @@ const AgeAnalysis = ({history}: any) => {
 								</TwitterShareButton>
 								<InstapaperShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton>
-								<Button onClick={(e?) => {
+								</InstapaperShareButton> */}
+								<Button label="capture" onClick={(e?) => {
 									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
 										let a = document.createElement("a");
 										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
