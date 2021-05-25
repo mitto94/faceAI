@@ -107,15 +107,15 @@ const AgeAnalysis = ({history}: any) => {
 							
 							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
                 			<div className="addthis_inline_share_toolbox_nwjf"></div>
-            					<FacebookShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
+            					<FacebookShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
-								<TwitterShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
+								<TwitterShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<TwitterIcon size={40} round={true}/>
 								</TwitterShareButton>
-								<InstapaperShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
+								{/* <InstapaperShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton>
+								</InstapaperShareButton> */}
 							</div>
 						</>
 						:
