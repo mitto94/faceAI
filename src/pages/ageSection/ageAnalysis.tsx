@@ -6,6 +6,7 @@ import { confirmDialog } from 'primereact/confirmdialog'
 import { AgeSentence, Color } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
 import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
+import { Button } from 'primereact/button';
 const AgeAnalysis = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
@@ -113,9 +114,16 @@ const AgeAnalysis = ({history}: any) => {
 								<TwitterShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<TwitterIcon size={40} round={true}/>
 								</TwitterShareButton>
-								{/* <InstapaperShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+								<InstapaperShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton> */}
+								</InstapaperShareButton>
+								<Button onClick={(e?) => {
+									navigator.share({
+										title: document.title,
+										text: "Hello",
+										url: window.location.href
+									})
+								}}></Button>
 							</div>
 						</>
 						:
