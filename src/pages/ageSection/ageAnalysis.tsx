@@ -5,7 +5,7 @@ import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import { AgeSentence, Color } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
-// import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
+import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
 const AgeAnalysis = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
@@ -31,6 +31,15 @@ const AgeAnalysis = ({history}: any) => {
 			setShow(true);
 		}
 		getAi();
+		// const script = document.createElement('script');
+		// script.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-608bd84c30f36210";
+		// script.type = "text/javascript";
+		// script.async = true;
+		// script.crossOrigin = "anonymous";
+		// document.body.appendChild(script);
+		// return () => {
+		// 	document.body.removeChild(script);
+		// }
 	}, [])
 	React.useEffect(() => {
 		if (show) {
@@ -98,17 +107,15 @@ const AgeAnalysis = ({history}: any) => {
 							
 							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
                 			<div className="addthis_inline_share_toolbox_nwjf"></div>
-            
-            
-            								{/* <FacebookShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+            					<FacebookShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
 									<FacebookIcon size={40} round={true}/>
 								</FacebookShareButton>
-								<TwitterShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+								<TwitterShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
 									<TwitterIcon size={40} round={true}/>
 								</TwitterShareButton>
-								<InstapaperShareButton url="https://ulpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
+								<InstapaperShareButton url={`${window.location.href}`} style={{margin: "0.75rem"}}>
 									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton> */}
+								</InstapaperShareButton>
 							</div>
 						</>
 						:
