@@ -7,7 +7,7 @@ import { AgeSentence, Color } from '../../faceAnalysis';
 import { Chart } from 'primereact/chart';
 import {Bar} from 'react-chartjs-2';
 import SidebarComponent from '../../components/Sidebar';
-import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
+import html2canvas from 'html2canvas';
 const EmotionAnalysis: React.FC = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
 	const [photoInfo, setPhotoInfo] = React.useState({
@@ -115,7 +115,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
         }
     };
 	return (
-			<div style={{height: "100%"}}>
+			<div id="capture" style={{height: "100%"}}>
 				<div className="container" style={{background: Color.second, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
@@ -141,18 +141,17 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
-
-							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-                			<div className="addthis_inline_share_toolbox_nwjf"></div>
-            								{/* <FacebookShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
-									<FacebookIcon size={40} round={true}/>
-								</FacebookShareButton>
-								<TwitterShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
-									<TwitterIcon size={40} round={true}/>
-								</TwitterShareButton>
-								<InstapaperShareButton url="https://ulpago.netlify.app/emotion_analysis" style={{margin: "0.75rem"}}>
-									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton> */}
+							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
+								<button className="face-btn" style={{border: `1px solid gray`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: Color.second}}
+								onClick={(e?) => {
+									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
+										let a = document.createElement("a");
+										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+										a.download = "out.jpg";
+										a.click();
+									});
+								}}>저장하기</button>
+							</div>
 							</div>
 						</>
 						:

@@ -31,7 +31,7 @@ const InputAge: React.FC = ({history}: any) => {
 							label="입력"
 						/>
 					</div>
-					<pre className="container" style={{width: "100vw", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
+					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
 				</div>
 			</div>
     );

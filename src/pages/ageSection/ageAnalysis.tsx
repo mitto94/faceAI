@@ -105,27 +105,16 @@ const AgeAnalysis = ({history}: any) => {
 							<div style={{display: "flex", flexDirection: "column", width: "100vw", alignItems: "center"}}>
 								<pre className="container" style={{width: "100vw", height: "12.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
-							<div style={{display: "flex", justifyContent: "center"}}>
-							
-							{/* <!-- Go to www.addthis.com/dashboard to customize your tools --> */}
-                			{/* <div className="addthis_inline_share_toolbox_nwjf"></div>
-            					<FacebookShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
-									<FacebookIcon size={40} round={true}/>
-								</FacebookShareButton>
-								<TwitterShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
-									<TwitterIcon size={40} round={true}/>
-								</TwitterShareButton>
-								<InstapaperShareButton url="https://earlpago.netlify.app/age_analysis" style={{margin: "0.75rem"}}>
-									<InstapaperIcon size={40} round={true}/>
-								</InstapaperShareButton> */}
-								<Button label="capture" onClick={(e?) => {
+							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
+								<button className="face-btn" style={{border: `1px solid ${Color.zero}`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem"}}
+								onClick={(e?) => {
 									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
 										let a = document.createElement("a");
 										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
 										a.download = "out.jpg";
 										a.click();
 									});
-								}}></Button>
+								}}>저장하기</button>
 							</div>
 						</>
 						:
