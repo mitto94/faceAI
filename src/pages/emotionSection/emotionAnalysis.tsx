@@ -116,13 +116,14 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
     };
 	return (
 			<div id="capture" style={{height: "100%"}}>
-				<div className="container" style={{background: Color.second, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+				<div className="container" style={{background: "#A6A998", width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
-					</div>					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
+					</div>
+					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
-				<div style={{backgroundColor: Color[from], width: "100vw", height: "90%", filter: "brightness(1.4)"}}> 
+				<div style={{backgroundColor:"#E8EDD5", width: "100vw", height: "90%"}}> 
 					<>
 						<div className="container" style={{maxHeight: "40%", height: "40%", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
 							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "40vh"}} crossOrigin='anonymous'/>
@@ -142,12 +143,12 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<button className="face-btn" style={{border: `1px solid gray`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: Color.second}}
+								<button className="face-btn" style={{border: `1px solid gray`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: "#E8EDD5"}}
 								onClick={(e?) => {
 									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
 										let a = document.createElement("a");
 										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-										a.download = "out.jpg";
+										a.download = "faceAi.jpg";
 										a.click();
 									});
 								}}>저장하기</button>
