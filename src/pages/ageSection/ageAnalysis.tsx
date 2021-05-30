@@ -111,7 +111,7 @@ const AgeAnalysis = ({history}: any) => {
 									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
 										let a = document.createElement("a");
 										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-										a.download = "faceAi.jpg";
+										a.download = "faceAi.jpeg";
 										a.click();
 									});
 								}}>저장하기</button>
