@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Color, Relation } from '../../faceAnalysis';
+import { Color, Relation, Sentence } from '../../faceAnalysis';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import Loading from '../Loading';
 import SidebarComponent from '../../components/Sidebar';
 import html2canvas from 'html2canvas';
-// import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share";
+let word: string;
 const RAnalysis = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
 	const [data, setData] = React.useState({
@@ -28,6 +28,12 @@ const RAnalysis = ({history}: any) => {
 		}
 		getAi();
 	}, [])
+	const randomItem = (a: Array<string>) => {
+		return a[Math.floor(Math.random() * a.length)];
+	}
+	if (show === false) {
+		word = randomItem(Sentence.ad)
+	}
 	React.useEffect(() => {
 		if (show) {
 			const getAnalysis = async () => {
@@ -117,7 +123,7 @@ const RAnalysis = ({history}: any) => {
 							</div>
 					</>
 					:
-					<Loading />
+					<Loading random={word}/>
 					}
 				</>
 			</div>

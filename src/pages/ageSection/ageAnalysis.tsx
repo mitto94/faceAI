@@ -3,11 +3,12 @@ import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import Loading from '../Loading';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
-import { AgeSentence, Color } from '../../faceAnalysis';
+import { AgeSentence, Color, Sentence } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
 import {FacebookShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, WhatsappShareButton, PinterestIcon, PinterestShareButton, InstapaperIcon, InstapaperShareButton, TwitterShareButton } from "react-share"; 
 import { Button } from 'primereact/button';
 import html2canvas from 'html2canvas';
+let word= "";
 const AgeAnalysis = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [show, setShow] = React.useState(false);
@@ -23,8 +24,15 @@ const AgeAnalysis = ({history}: any) => {
 	let tag = false;
 	let imageRef: any = React.createRef();
 	const pathname = location.pathname
-
+	const randomItem = (a: Array<string>) => {
+		return a[Math.floor(Math.random() * a.length)];
+	}
+	
+	if (show === false) {
+		word = randomItem(Sentence.ad);
+	}
 	React.useEffect(() => {
+		console.log("word", word)
 		const getAi = async () => {
 			await Promise.all([
 				faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
@@ -33,15 +41,6 @@ const AgeAnalysis = ({history}: any) => {
 			setShow(true);
 		}
 		getAi();
-		// const script = document.createElement('script');
-		// script.src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-608bd84c30f36210";
-		// script.type = "text/javascript";
-		// script.async = true;
-		// script.crossOrigin = "anonymous";
-		// document.body.appendChild(script);
-		// return () => {
-		// 	document.body.removeChild(script);
-		// }
 	}, [])
 	React.useEffect(() => {
 		if (show) {
@@ -72,11 +71,8 @@ const AgeAnalysis = ({history}: any) => {
         onHide: () => history.push("/"),
     });
 	}
-	const randomItem = (a: Array<string>) => {
-		return a[Math.floor(Math.random() * a.length)];
-	}
 	return (
-			<div id="capture" style={{height: "100%", overflow: "hidden"}}>
+			<div id="capture" style={{height: "100%", overflow: "auto"}}>
 				<div className="container" style={{background: "#524F4A", width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
@@ -105,8 +101,8 @@ const AgeAnalysis = ({history}: any) => {
 							<div style={{display: "flex", flexDirection: "column", width: "100vw", alignItems: "center"}}>
 								<pre className="container" style={{width: "100vw", height: "12.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
-							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<button className="face-btn" style={{border: `1px solid ${Color.zero}`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: "white"}}
+							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center", width: "100%"}}>
+								{/* <button className="face-btn" style={{border: `1px solid ${Color.zero}`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: "white"}}
 								onClick={(e?) => {
 									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
 										let a = document.createElement("a");
@@ -114,11 +110,12 @@ const AgeAnalysis = ({history}: any) => {
 										a.download = "faceAi.jpeg";
 										a.click();
 									});
-								}}>저장하기</button>
+								}}>저장하기</button> */}
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}</pre>
 							</div>
 						</>
 						:
-						<Loading />
+						<Loading random={word} />
 						}
 					</>
 				</div>

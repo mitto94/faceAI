@@ -3,11 +3,12 @@ import { Link, BrowserRouter as Router, useHistory, useLocation } from 'react-ro
 import Loading from '../Loading';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
-import { AgeSentence, Color } from '../../faceAnalysis';
+import { AgeSentence, Color, Sentence } from '../../faceAnalysis';
 import { Chart } from 'primereact/chart';
 import {Bar} from 'react-chartjs-2';
 import SidebarComponent from '../../components/Sidebar';
 import html2canvas from 'html2canvas';
+let word: string;
 const EmotionAnalysis: React.FC = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
 	const [photoInfo, setPhotoInfo] = React.useState({
@@ -19,7 +20,12 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 	const photo = location?.state?.photo;
 	let from = location?.state?.from;
 	let imageRef: any = React.createRef();
-
+	const randomItem = (a: Array<string>) => {
+		return a[Math.floor(Math.random() * a.length)];
+	}
+	if (show === false) {
+		word = randomItem(Sentence.ad);
+	}
 	React.useEffect(() => {
 		const getAi = async () => {
 			await Promise.all([
@@ -156,7 +162,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 							</div>
 						</>
 						:
-						<Loading />
+						<Loading random={word}/>
 						}
 					</>
 				</div>
