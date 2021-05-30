@@ -14,6 +14,22 @@ const GetPicture = ({history}: any) => {
 	const [showCamera, setShowCamera] = React.useState(false);
 	const location: any = useLocation();
 	const {from, age} = location?.state;
+	React.useEffect(() => {
+		let ins: any = document.createElement('ins');
+        let scr: any = document.createElement('script');
+
+        ins.className = 'kakao_ad_area';
+        ins.style = "display:none; width:100%;";
+        scr.async = 'true';
+        scr.type = "text/javascript";
+        scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+        ins.setAttribute('data-ad-width', '320');
+        ins.setAttribute('data-ad-height', '100');
+        ins.setAttribute('data-ad-unit', 'DAN-WyB8fzPP0AF3uyuJ');
+
+        (document as any).querySelector(".ad-banner").appendChild(ins);
+        (document as any).querySelector('.ad-banner').appendChild(scr);
+	}, [])
 	const takePicture = (e?: any) => {
 		setShowCamera(true);
 	}
@@ -75,6 +91,8 @@ const GetPicture = ({history}: any) => {
 						style={{display: "none"}}></input>
                     </div>
                     <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
+					<div className="ad-banner" style={{position: "absolute", bottom: 0}}>
+					</div>
 				</div>
 			</div>
 			:

@@ -5,6 +5,22 @@ import { Color } from '../../faceAnalysis';
 
 const InputRelationship: React.FC = ({history}: any) => {
 	// const history = useHistory();
+    React.useEffect(() => {
+		let ins: any = document.createElement('ins');
+        let scr: any = document.createElement('script');
+
+        ins.className = 'kakao_ad_area';
+        ins.style = "display:none; width:100%;";
+        scr.async = 'true';
+        scr.type = "text/javascript";
+        scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+        ins.setAttribute('data-ad-width', '320');
+        ins.setAttribute('data-ad-height', '100');
+        ins.setAttribute('data-ad-unit', 'DAN-XTbmDuTkWuLkadnO');
+
+        (document as any).querySelector(".ad-banner").appendChild(ins);
+        (document as any).querySelector('.ad-banner').appendChild(scr);
+	}, [])
     return (
         <div style={{height: "100vh"}}>
             <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
@@ -48,6 +64,12 @@ const InputRelationship: React.FC = ({history}: any) => {
                 </div>
                 </div>
                 <div style={{margin: "2rem", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>둘은 어떤 관계인가요?</div>
+                <div className="ad-banner" style={{position: "absolute", bottom: 0}}>
+						{/* <ins className="kakao_ad_area" style={{display: "none"}} 
+							data-ad-unit    = "DAN-XTbmDuTkWuLkadnO" 
+							data-ad-width   = "320" 
+							data-ad-height  = "100"></ins>  */}
+				</div>
             </div>
         </div>
     );

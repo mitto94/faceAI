@@ -65,7 +65,9 @@
 	height: 100vh !important;
 	position: absolute;
 }
-
+.ad-banner {
+  width: 320px;
+}
 .firstcolor {
 	background-color: #D5A7E8;
 }
