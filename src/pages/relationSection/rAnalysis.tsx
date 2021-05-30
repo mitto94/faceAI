@@ -5,7 +5,6 @@ import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import Loading from '../Loading';
 import SidebarComponent from '../../components/Sidebar';
-import html2canvas from 'html2canvas';
 let word: string;
 const RAnalysis = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
@@ -103,7 +102,6 @@ const RAnalysis = ({history}: any) => {
 					{data.finish ?
 						<>
 						<div style={{display: "flex", justifyContent: "center"}}>
-							{/* <div className="container-ct m-1" style={{border: "1px solid gray", borderRadius: "50px", width: "6rem", height: "6rem", background: `${sFlag === "first" ? "#ffa94d": ""}`}}>안 닮음</div> */}
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "7rem", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>안 닮음</div>
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "7rem", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>조금 닮음</div>
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "7rem", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>

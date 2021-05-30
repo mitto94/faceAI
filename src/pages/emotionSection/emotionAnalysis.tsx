@@ -7,7 +7,6 @@ import { AgeSentence, Color, Sentence } from '../../faceAnalysis';
 import { Chart } from 'primereact/chart';
 import {Bar} from 'react-chartjs-2';
 import SidebarComponent from '../../components/Sidebar';
-import html2canvas from 'html2canvas';
 let word: string;
 const EmotionAnalysis: React.FC = ({history}: any) => {
 	const [show, setShow] = React.useState(false);
