@@ -121,7 +121,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
         }
     };
 	return (
-			<div id="capture" style={{height: "100%"}}>
+			<div id="capture" style={{height: "100vh"}}>
 				<div className="container" style={{background: "#A6A998", width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
@@ -137,27 +137,19 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "Cute Font, cursive", height: "40%"}}>
+							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "Cute Font, cursive", height: "45%"}}>
 								{emotionChart.labels.length !== 0
 								&& 
 								<Bar data={emotionChart} type={""}/>
 								}
-								<label style={{textAlign: "center", fontSize: "1.8rem"}}>{`당신의 기분은`}
+								<label style={{textAlign: "center", fontSize: "1.8rem", marginBottom: "10%"}}>{`당신의 기분은`}
 								<br></br>
 								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[0]}`}</span>{`이거나 ` }
 								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<button className="face-btn" style={{border: `1px solid gray`, color: Color.zero, fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: "#E8EDD5"}}
-								onClick={(e?) => {
-									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
-										let a = document.createElement("a");
-										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-										a.download = "faceAi.jpg";
-										a.click();
-									});
-								}}>저장하기</button>
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 							</div>
 						</>

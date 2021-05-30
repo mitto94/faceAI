@@ -111,7 +111,7 @@ const AgeAnalysis = ({history}: any) => {
 										a.click();
 									});
 								}}>저장하기</button> */}
-								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}</pre>
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 						</>
 						:

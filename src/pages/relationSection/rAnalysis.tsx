@@ -109,18 +109,10 @@ const RAnalysis = ({history}: any) => {
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "7rem", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>
 						</div>
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
-						<pre className="container" style={{width: "100vw", height: "9vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{Relation[relation][sFlag]}</pre>
-						<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<button className="face-btn" style={{border: `1px solid #8B4513`, color: "#8B4513", fontSize: "1.65rem", fontFamily: "Stylish, sans-serif", boxShadow: "1px 1px 1px 1px gray", minHeight: "2.5rem", background: "#FFFFF6"}}
-								onClick={(e?) => {
-									html2canvas(document.getElementById("capture") as any).then(function(canvas) {
-										let a = document.createElement("a");
-										a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-										a.download = "faceAi.jpg";
-										a.click();
-									});
-								}}>저장하기</button>
-							</div>
+						<pre className="container" style={{width: "100vw", height: "12vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
+						<div style={{display: "flex", justifyContent: "center", height: "15vh", alignItems: "center"}}>
+							<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
+						</div>
 					</>
 					:
 					<Loading random={word}/>
