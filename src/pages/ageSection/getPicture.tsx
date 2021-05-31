@@ -184,7 +184,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 1;
-  max-width: 400px;
+  max-width: 450px;
 `;
 
 const Control = styled.div`
@@ -203,7 +203,7 @@ const Control = styled.div`
   padding: 50px;
   box-sizing: border-box;
   flex-direction: column-reverse;
-  max-width: 400px;
+  max-width: 450px;
   @media (max-aspect-ratio: 5/1) {
     flex-direction: row;
     bottom: 0;

@@ -80,7 +80,7 @@ const AgeAnalysis = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
 					<SidebarComponent />
 				</div>		
-				<div style={{backgroundColor: "white", width: "100vw", height: "90%", maxWidth: "400px", }}> 
+				<div style={{backgroundColor: "white", width: "100vw", height: "90%", maxWidth: "450px", }}> 
 					<>
 						<div className="container" style={{maxHeight: "40%", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
 							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center", maxWidth: "200px"}} crossOrigin='anonymous'/>
