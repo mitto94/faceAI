@@ -184,7 +184,7 @@ const Wrapper = styled.div`
 const Control = styled.div`
   position: fixed;
   display: flex;
-  left: 0;
+  justiyfy-content: center;
   width: 20%;
   min-width: 130px;
   min-height: 130px;

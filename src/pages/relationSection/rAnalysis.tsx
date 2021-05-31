@@ -87,7 +87,7 @@ const RAnalysis = ({history}: any) => {
 				<div className="container" style={{color: "white", fontSize: "1.7rem", fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
 				<SidebarComponent />
 			</div>
-			<div style={{backgroundColor: "#FFFFF6", width: "100vw", height: "100%", maxWidth: "400px", textAlign: "center"}}> 
+			<div style={{backgroundColor: "#FFFFF6", width: "100%", height: "100%", maxWidth: "450px", textAlign: "center"}}> 
 				<>
 					<div className="container" style={{height: "37vh",  display: `${data.finish ? "flex" : "none"}`, justifyContent: "center", fontFamily: "Stylish, sans-serif", fontSize: "1.3rem"}}>
 						<div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "0.5rem"}}>
