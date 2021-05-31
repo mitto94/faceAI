@@ -29,7 +29,10 @@ const AgeAnalysis = ({history}: any) => {
 		word = randomItem(Sentence.ad);
 	}
 	React.useEffect(() => {
-		console.log("word", word)
+		if ((window as any).ReactNativeWebView) {
+			// 모바일이라면 모바일의 카메라 권한을 물어보는 액션을 전달합니다.
+			(window as any).ReactNativeWebView.postMessage("start");
+		  }
 		const getAi = async () => {
 			await Promise.all([
 				faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),

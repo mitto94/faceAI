@@ -65,10 +65,6 @@ const InputRelationship: React.FC = ({history}: any) => {
                 </div>
                 <div style={{margin: "2rem", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>둘은 어떤 관계인가요?</div>
                 <div className="ad-banner" style={{position: "absolute", bottom: 0}}>
-						{/* <ins className="kakao_ad_area" style={{display: "none"}} 
-							data-ad-unit    = "DAN-XTbmDuTkWuLkadnO" 
-							data-ad-width   = "320" 
-							data-ad-height  = "100"></ins>  */}
 				</div>
             </div>
         </div>
