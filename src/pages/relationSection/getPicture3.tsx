@@ -73,11 +73,11 @@ const GetPicture = ({history}: any) => {
                         <div ref={image2} className="m-2 container" style={{width: "40vw", height: "15vh", border: "1px dashed black"}}>Image Area</div>     */}
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                         <img ref={(ref) => image1 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={image ? image : `./basic.jpeg`}></img>
-                        {image && <Button onClick={() => setImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "18vw", bottom: "31vh"}} />}
+                        {image && <Button onClick={() => setImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "35%", bottom: "31vh"}} />}
                       </div>
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                         <img ref={(ref) => image2 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={secondImage ? secondImage : `./basic.jpeg`}></img>
-                        {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "18vw", bottom: "31vh"}}/>}
+                        {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "35%", bottom: "31vh"}}/>}
                       </div>
                     </div>
                     <div style={{display: "flex", justifyContent: "center", fontFamily: "Sunflower, sans-serif"}}>
