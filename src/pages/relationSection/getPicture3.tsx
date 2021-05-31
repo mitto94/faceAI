@@ -72,11 +72,11 @@ const GetPicture = ({history}: any) => {
                         {/* <div className="m-2 container" style={{width: "40vw", height: "15vh", border: "1px dashed black"}}>Image Area<img style={{width: "10rem", height: "10rem", position: "absolute"}} src={image as any && image}></img></div>    
                         <div ref={image2} className="m-2 container" style={{width: "40vw", height: "15vh", border: "1px dashed black"}}>Image Area</div>     */}
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                        <img ref={(ref) => image1 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem"}} src={image ? image : `./basic.jpeg`}></img>
+                        <img ref={(ref) => image1 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={image ? image : `./basic.jpeg`}></img>
                         {image && <Button onClick={() => setImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "18vw", bottom: "31vh"}} />}
                       </div>
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                        <img ref={(ref) => image2 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem"}} src={secondImage ? secondImage : `./basic.jpeg`}></img>
+                        <img ref={(ref) => image2 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={secondImage ? secondImage : `./basic.jpeg`}></img>
                         {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "18vw", bottom: "31vh"}}/>}
                       </div>
                     </div>
@@ -175,15 +175,16 @@ export default GetPicture;
 
 const Wrapper = styled.div`
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 1;
+  max-width: 400px;
 `;
 
 const Control = styled.div`
   position: fixed;
   display: flex;
-  right: 0;
+  left: 0;
   width: 20%;
   min-width: 130px;
   min-height: 130px;
@@ -196,10 +197,11 @@ const Control = styled.div`
   padding: 50px;
   box-sizing: border-box;
   flex-direction: column-reverse;
-  @media (max-aspect-ratio: 1/1) {
+  max-width: 400px;
+  @media (max-aspect-ratio: 5/1) {
     flex-direction: row;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: 20vh;
   }
   @media (max-width: 400px) {
@@ -280,8 +282,8 @@ const ImagePreview = styled.div<{ image: string | null }>`
 `;
 
 const FullScreenImagePreview = styled.div<{ image: string | null }>`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 100;
   position: absolute;
   background-color: black;

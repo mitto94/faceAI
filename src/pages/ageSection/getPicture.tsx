@@ -181,15 +181,16 @@ export default GetPicture;
 
 const Wrapper = styled.div`
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 1;
+  max-width: 400px;
 `;
 
 const Control = styled.div`
   position: fixed;
   display: flex;
-  right: 0;
+  left: 0;
   width: 20%;
   min-width: 130px;
   min-height: 130px;
@@ -202,10 +203,11 @@ const Control = styled.div`
   padding: 50px;
   box-sizing: border-box;
   flex-direction: column-reverse;
-  @media (max-aspect-ratio: 1/1) {
+  max-width: 400px;
+  @media (max-aspect-ratio: 5/1) {
     flex-direction: row;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: 20vh;
   }
   @media (max-width: 400px) {
@@ -286,8 +288,8 @@ const ImagePreview = styled.div<{ image: string | null }>`
 `;
 
 const FullScreenImagePreview = styled.div<{ image: string | null }>`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 100;
   position: absolute;
   background-color: black;

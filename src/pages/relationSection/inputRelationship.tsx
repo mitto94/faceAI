@@ -28,7 +28,7 @@ const InputRelationship: React.FC = ({history}: any) => {
 				<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
 				<SidebarComponent />
 			</div>
-            <div className="container" style={{width: "100vw", height: "90%", background: Color["third"], filter: "brightness(1.4)", flexDirection: "column", fontFamily: "Sunflower, sans-serif"}}>
+            <div className="container" style={{width: "100%", height: "90%", background: Color["third"], filter: "brightness(1.4)", flexDirection: "column", fontFamily: "Sunflower, sans-serif"}}>
                 <div style={{display: "flex"}}><div style={{display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer", margin: ".5rem"}}
                     onClick={() => history.push({
                         pathname: "relation_photo",

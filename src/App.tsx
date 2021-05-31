@@ -13,7 +13,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 const App: React.FC = () => {
 	return (
-			<div style={{height: "100vh", width: "100vw"}}>
+			<div style={{height: "100vh", width: "100%", maxWidth: "400px", }}>
 				{/* <Menu/> */}
 				<Route exact path="/" component={Home}></Route>
 				<Switch>

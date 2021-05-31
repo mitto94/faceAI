@@ -80,26 +80,26 @@ const AgeAnalysis = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
 					<SidebarComponent />
 				</div>		
-				<div style={{backgroundColor: "white", width: "100vw", height: "90%"}}> 
+				<div style={{backgroundColor: "white", width: "100vw", height: "90%", maxWidth: "400px", }}> 
 					<>
-						<div className="container" style={{maxHeight: "270px", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
-							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center"}} crossOrigin='anonymous'/>
+						<div className="container" style={{maxHeight: "40%", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
+							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center", maxWidth: "200px"}} crossOrigin='anonymous'/>
 						</div>
 						{photoInfo.finish
 						?
 						<>
 							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "Stylish, sans-serif"}}>
-								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)"}}>
+								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
 									<div style={{fontWeight: 600, fontSize: "1.6rem", margin: "0.55rem"}}>실제 나이</div>
 									<span style={{fontWeight: 550, fontSize: "1.6rem"}}>{age} 살</span>
 								</div>
-								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)"}}>
+								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
 									<div style={{fontWeight: 600, fontSize: "1.6rem", margin: "0.55rem"}}>예측 나이</div>
 									<span style={{fontWeight: 550, fontSize: "1.6rem", color: "purple"}}>{photoInfo.age} 살</span>
 								</div>
 							</div>
-							<div style={{display: "flex", flexDirection: "column", width: "100vw", alignItems: "center"}}>
-								<pre className="container" style={{width: "100vw", height: "14.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
+							<div style={{display: "flex", flexDirection: "column", width: "100%", alignItems: "center"}}>
+								<pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
 							<div style={{display: "flex", justifyContent: "center", height: "12vh", alignItems: "center", width: "100%"}}>
 								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>

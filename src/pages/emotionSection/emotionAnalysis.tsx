@@ -120,7 +120,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
         }
     };
 	return (
-			<div id="capture" style={{height: "100vh"}}>
+			<div id="capture" style={{height: "100vh", maxWidth: "400px"}}>
 				<div className="container" style={{background: "#A6A998", width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
@@ -128,10 +128,10 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
-				<div style={{backgroundColor:"#E8EDD5", width: "100vw", height: "90%"}}> 
+				<div style={{backgroundColor:"#E8EDD5", width: "100vw", height: "90%", maxWidth: "400px", }}> 
 					<>
 						<div className="container" style={{maxHeight: "40%", height: "40%", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
-							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "40vh"}} crossOrigin='anonymous'/>
+							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "40vh", maxWidth: "270px"}} crossOrigin='anonymous'/>
 						</div>
 						{photoInfo.finish
 						?
