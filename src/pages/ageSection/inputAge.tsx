@@ -9,6 +9,9 @@ const InputAge: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [age, setAge] = React.useState();
 	React.useEffect(() => {
+		if ((window as any).ReactNativeWebView) {
+			(window as any).ReactNativeWebView.postMessage("banner1");
+		}
 		// let ins: any = document.createElement('ins');
         // let scr: any = document.createElement('script');
 
