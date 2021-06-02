@@ -19,7 +19,7 @@ const GetPicture = ({history}: any) => {
         let scr: any = document.createElement('script');
 
         ins.className = 'kakao_ad_area';
-        ins.style = "display:none; width:100%;";
+        ins.style = "display:none;";
         scr.async = 'true';
         scr.type = "text/javascript";
         scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
