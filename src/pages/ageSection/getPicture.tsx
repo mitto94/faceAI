@@ -91,8 +91,10 @@ const GetPicture = ({history}: any) => {
 						style={{display: "none"}}></input>
                     </div>
                     <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
-					<div className="ad-banner" style={{position: "absolute", bottom: 0}}>
-					</div>
+					{/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714)"}}>
+					</div> */}
+				</div>
+				<div className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
 				</div>
 			</div>
 			:
