@@ -79,7 +79,7 @@ const AgeAnalysis = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
 					<SidebarComponent />
 				</div>		
-				<div style={{backgroundColor: "white", width: "100vw", height: "90%", maxWidth: "450px", }}> 
+				<div style={{backgroundColor: "white", width: "100%", height: "90%", maxWidth: "450px", }}> 
 					<>
 						<div className="container" style={{maxHeight: "40%", height: "40vh", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
 							<img ref={(ref) => imageRef = ref} style={{width: "40vw", textAlign: "center", maxWidth: "200px"}} crossOrigin='anonymous'/>
@@ -101,7 +101,7 @@ const AgeAnalysis = ({history}: any) => {
 								<pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
 							<div style={{display: "flex", justifyContent: "center", height: "12vh", alignItems: "center", width: "100%"}}>
-								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 						</>
 						:

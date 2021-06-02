@@ -112,7 +112,7 @@ const RAnalysis = ({history}: any) => {
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
 						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center", height: "15vh", alignItems: "center"}}>
-							<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
+							<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 						</div>
 					</>
 					:

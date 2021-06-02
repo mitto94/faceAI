@@ -151,7 +151,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".4"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 							</div>
 						</>
