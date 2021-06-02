@@ -52,7 +52,7 @@ const InputAge: React.FC = ({history}: any) => {
 						/>
 					</div>
 					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
-					<div className="ad-banner" style={{position: "absolute", bottom: 0}}>
+					<div id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0}}>
 					</div>
 				</div>
 			</div>
