@@ -10,7 +10,7 @@ const Home: React.FC = ({history}: any) => {
         <div className="container-ct" style={{flexDirection: "column"}}>
 			<div className="container" style={{background: Color["zero"], width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
 				<div style={{width: "2rem"}}></div>
-				<div className="container" style={{color: "white", fontSize: "1.35rem", fontWeight: 600}}>AI가 보는 나의 얼굴</div>
+				<div className="container" style={{color: "white", fontSize: "1.35rem", fontWeight: 600, paddingTop: ".5rem"}}>AI가 보는 나의 얼굴</div>
 				<SidebarComponent />
 			</div>
 			<div className="container" style={{width: "100%", height: "30%", background: Color.first}}>

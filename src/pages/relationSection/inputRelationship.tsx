@@ -23,7 +23,7 @@ const InputRelationship: React.FC = ({history}: any) => {
 	}, [])
     return (
         <div style={{height: "100vh"}}>
-            <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+            <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
 				<div style={{width: "2rem"}}></div>
 				<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
 				<SidebarComponent />

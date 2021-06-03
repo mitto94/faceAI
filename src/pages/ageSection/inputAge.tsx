@@ -31,7 +31,7 @@ const InputAge: React.FC = ({history}: any) => {
 	
     return (
 			<div style={{height: "100vh"}}>
-        		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+        		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
 					<div style={{width: "2rem"}}></div>
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
 					<SidebarComponent />

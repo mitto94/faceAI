@@ -72,7 +72,7 @@ const GetPicture = ({history}: any) => {
 		{
 			!showCamera 
 			? <div style={{height: "100vh"}}>
-				<div className="container" style={{background: `${from === "first" ? Color.zero : Color.second}`, width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>
+				<div className="container" style={{background: `${from === "first" ? Color.zero : Color.second}`, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
 					<div style={{width: "2rem"}}></div>
 					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>{from === "first" ? "AI로 얼굴나이 확인하기" : "AI가 보는 나의 감정"}</div>
 					<SidebarComponent />
