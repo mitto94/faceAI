@@ -64,8 +64,6 @@ const InputRelationship: React.FC = ({history}: any) => {
                 </div>
                 </div>
                 <div style={{margin: "2rem", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>둘은 어떤 관계인가요?</div>
-                {/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714"}}>
-				</div> */}
             </div>
             <div className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
 				</div>

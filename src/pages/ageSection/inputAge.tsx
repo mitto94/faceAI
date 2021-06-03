@@ -10,23 +10,23 @@ const InputAge: React.FC = ({history}: any) => {
 	const [age, setAge] = React.useState();
 	let redd: any = React.useRef();
 	React.useEffect(() => {
-		if ((window as any).ReactNativeWebView) {
-			(window as any).ReactNativeWebView.postMessage(JSON.stringify(redd));
-		}
-		// let ins: any = document.createElement('ins');
-        // let scr: any = document.createElement('script');
+		// if ((window as any).ReactNativeWebView) {
+		// 	(window as any).ReactNativeWebView.postMessage(JSON.stringify(redd));
+		// }
+		let ins: any = document.createElement('ins');
+        let scr: any = document.createElement('script');
 
-        // ins.className = 'kakao_ad_area';
-        // ins.style = "display:none;";
-        // scr.async = 'true';
-        // scr.type = "text/javascript";
-        // scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-        // ins.setAttribute('data-ad-width', '320');
-        // ins.setAttribute('data-ad-height', '100');
-        // ins.setAttribute('data-ad-unit', 'DAN-XTbmDuTkWuLkadnO');
+        ins.className = 'kakao_ad_area';
+        ins.style = "display:none;";
+        scr.async = 'true';
+        scr.type = "text/javascript";
+        scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+        ins.setAttribute('data-ad-width', '320');
+        ins.setAttribute('data-ad-height', '100');
+        ins.setAttribute('data-ad-unit', 'DAN-XTbmDuTkWuLkadnO');
 
-        // (document as any).querySelector(".ad-banner").appendChild(ins);
-        // (document as any).querySelector('.ad-banner').appendChild(scr);
+        (document as any).querySelector(".ad-banner").appendChild(ins);
+        (document as any).querySelector('.ad-banner').appendChild(scr);
 	}, [])
 	
     return (
@@ -53,9 +53,9 @@ const InputAge: React.FC = ({history}: any) => {
 						/>
 					</div>
 					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
-					<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0}}>
-					</div>
 				</div>
+				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
+					</div>
 			</div>
     );
 };

@@ -30,7 +30,7 @@ const AgeAnalysis = ({history}: any) => {
 	}
 	React.useEffect(() => {
 		if ((window as any).ReactNativeWebView) {
-			(window as any).ReactNativeWebView.postMessage("start");
+			(window as any).ReactNativeWebView.postMessage("all");
 		}
 		const getAi = async () => {
 			await Promise.all([
