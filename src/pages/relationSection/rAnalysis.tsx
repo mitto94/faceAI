@@ -82,8 +82,8 @@ const RAnalysis = ({history}: any) => {
 	}
 	let sFlag = data.distance > 0.6 ? "first" :  data.distance <= 0.6 && data.distance > 0.4 ? "second" : "third"
 	return (
-        <div id="capture" style={{height: "100%", display: "flex", flexDirection: "column", width: "100%"}}>
-			<div className="container" style={{background: "#D6C1B0", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
+        <div id="capture" style={{height: "100%", display: "flex", flexDirection: "column", width: "100%", backgroundColor: "#FFFFF6"}}>
+			<div className="container" style={{background: "#D6C1B0", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem", minHeight: "10vh"}}>
 				<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 					<i className="fas fa-home" onClick={() => history.push("/")}></i>
 				</div>
@@ -105,9 +105,9 @@ const RAnalysis = ({history}: any) => {
 					{data.finish ?
 						<>
 						<div style={{display: "flex", justifyContent: "center"}}>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "7rem", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>안 닮음</div>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "7rem", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>조금 닮음</div>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "7rem", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "30vw", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>안 닮음</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>조금 닮음</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>
 						</div>
 						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
 						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
