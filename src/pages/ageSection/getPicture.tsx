@@ -131,7 +131,6 @@ const GetPicture = ({history}: any) => {
 						onClick={() => {
 							if (camera.current) {
 								const photo = camera.current.takePhoto();
-								console.log(photo);
 								switch (from) {
 									case "first":
 										history.push({
@@ -168,7 +167,6 @@ const GetPicture = ({history}: any) => {
 						onClick={() => {
 							if (camera.current) {
 								const result = camera.current.switchCamera();
-								console.log(result);
 							}
 						}}
 					/>
