@@ -23,7 +23,7 @@ const InputAge: React.FC = ({history}: any) => {
         scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
         ins.setAttribute('data-ad-width', '320');
         ins.setAttribute('data-ad-height', '100');
-        ins.setAttribute('data-ad-unit', 'DAN-XTbmDuTkWuLkadnO');
+        ins.setAttribute('data-ad-unit', "DAN-XTbmDuTkWuLkadnO");
 
         (document as any).querySelector(".ad-banner").appendChild(ins);
         (document as any).querySelector('.ad-banner').appendChild(scr);
@@ -54,7 +54,7 @@ const InputAge: React.FC = ({history}: any) => {
 					</div>
 					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
 				</div>
-				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
+				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)", width: "320px", height: "100px"}}>
 					</div>
 			</div>
     );

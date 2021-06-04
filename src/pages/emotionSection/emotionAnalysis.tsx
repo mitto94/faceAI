@@ -131,7 +131,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
-				<div style={{backgroundColor:"#E8EDD5", width: "100%", height: "93%", maxWidth: "450px", }}> 
+				<div style={{backgroundColor:"#E8EDD5", width: "100%", height: "95%", maxWidth: "450px", }}> 
 					<>
 						<div className="container" style={{maxHeight: "40%", height: "40%", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
 							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "40vh", maxWidth: "270px"}} crossOrigin='anonymous'/>
@@ -139,7 +139,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "Cute Font, cursive", height: "45%"}}>
+							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "8%", fontFamily: "Cute Font, cursive", height: "42%"}}>
 								{emotionChart.labels.length !== 0
 								&& 
 								<Bar data={emotionChart} type={""}/>
