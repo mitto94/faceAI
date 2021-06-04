@@ -6,6 +6,7 @@ import SidebarComponent from '../components/Sidebar';
 
 const Home: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
+	window.history.replaceState(null, null as any, "/");
     return (
         <div className="container-ct" style={{flexDirection: "column"}}>
 			<div className="container" style={{background: Color["zero"], width: "100%", height: "10%", display: "flex", justifyContent: "space-around"}}>

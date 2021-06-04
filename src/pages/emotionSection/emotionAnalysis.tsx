@@ -139,7 +139,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "8%", fontFamily: "Cute Font, cursive", height: "42%"}}>
+							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "Cute Font, cursive", height: "42%"}}>
 								{emotionChart.labels.length !== 0
 								&& 
 								<Bar data={emotionChart} type={""}/>
