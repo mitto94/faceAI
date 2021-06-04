@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://earlpago.netlify.app/sitemap.xml
