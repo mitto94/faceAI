@@ -94,7 +94,7 @@ const GetPicture = ({history}: any) => {
 					{/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714)"}}>
 					</div> */}
 				</div>
-				<div className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
+				<div className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)", width: "320px", height: "100px"}}>
 				</div>
 			</div>
 			:
