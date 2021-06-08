@@ -18,15 +18,25 @@ const GetPicture = ({history}: any) => {
 		let ins: any = document.createElement('ins');
         let scr: any = document.createElement('script');
 
-        ins.className = 'kakao_ad_area';
-        ins.style = "display:none;";
-        scr.async = 'true';
-        scr.type = "text/javascript";
-        scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
-        ins.setAttribute('data-ad-width', '320');
-        ins.setAttribute('data-ad-height', '100');
-        ins.setAttribute('data-ad-unit', 'DAN-WyB8fzPP0AF3uyuJ');
-
+		if ((window as any).ReactNativeWebView) {
+			ins.className = 'kakao_ad_area';
+			ins.style = "display:none;";
+			scr.async = 'true';
+			scr.type = "text/javascript";
+			scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+			ins.setAttribute('data-ad-width', '320');
+			ins.setAttribute('data-ad-height', '100');
+			ins.setAttribute('data-ad-unit', "DAN-d0MIQFOwQDry7NQj");
+		} else {
+			ins.className = 'kakao_ad_area';
+			ins.style = "display:none;";
+			scr.async = 'true';
+			scr.type = "text/javascript";
+			scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+			ins.setAttribute('data-ad-width', '320');
+			ins.setAttribute('data-ad-height', '100');
+			ins.setAttribute('data-ad-unit', 'DAN-WyB8fzPP0AF3uyuJ');
+		}
         (document as any).querySelector(".ad-banner").appendChild(ins);
         (document as any).querySelector('.ad-banner').appendChild(scr);
 	}, [])
