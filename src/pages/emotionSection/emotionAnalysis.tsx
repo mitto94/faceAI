@@ -128,7 +128,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>
-					<div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 나의 감정</div>
+					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
 				<div style={{backgroundColor:"#E8EDD5", width: "100%", height: "95%", maxWidth: "450px", }}> 

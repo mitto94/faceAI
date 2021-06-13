@@ -64,7 +64,7 @@ const GetPicture = ({history}: any) => {
 			? <div style={{height: "100vh", overflow: "auto"}}>
           <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
             <div style={{width: "2rem"}}></div>
-            <div className="container" style={{color: "white", fontSize: "1.7rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
+            <div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
             <SidebarComponent />
           </div>
           <div className="container" style={{height: "100%", backgroundColor: Color[from], justifyContent: "flex-start",flexDirection: "column", filter: "brightness(1.4)"}}>

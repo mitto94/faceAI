@@ -76,7 +76,7 @@ const AgeAnalysis = ({history}: any) => {
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>
-					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
+					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
 					<SidebarComponent />
 				</div>		
 				<div style={{backgroundColor: "white", width: "100%", height: "90%", maxWidth: "450px", }}> 

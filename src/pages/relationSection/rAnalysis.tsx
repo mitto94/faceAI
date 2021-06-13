@@ -87,7 +87,7 @@ const RAnalysis = ({history}: any) => {
 				<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 					<i className="fas fa-home" onClick={() => history.push("/")}></i>
 				</div>
-				<div className="container" style={{color: "white", fontSize: "1.7rem", fontFamily: "Stylish, sans-serif"}}>AI가 보는 우리 얼굴</div>
+				<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
 				<SidebarComponent />
 			</div>
 			<div style={{backgroundColor: "#FFFFF6", width: "100%", height: "100%", maxWidth: "450px", textAlign: "center"}}> 

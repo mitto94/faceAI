@@ -20,7 +20,7 @@ const InputAge: React.FC = ({history}: any) => {
 			scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
 			ins.setAttribute('data-ad-width', '320');
 			ins.setAttribute('data-ad-height', '100');
-			ins.setAttribute('data-ad-unit', "DAN-d0MIQFOwQDry7NQj");
+			ins.setAttribute('data-ad-unit', "DAN-MA2JV3KAqVlbMwqJ");
 		} else {
 			ins.className = 'kakao_ad_area';
 			ins.style = "display:none;";
@@ -39,7 +39,7 @@ const InputAge: React.FC = ({history}: any) => {
 			<div style={{height: "100vh"}}>
         		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
 					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "1.6rem", fontWeight: 500, fontFamily: "Stylish, sans-serif"}}>AI로 얼굴나이 확인하기</div>
+					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
 					<SidebarComponent />
 				</div>
 				<div className="container" style={{height: "90%", flexDirection: "column" , backgroundColor: Color.first, filter: "brightness(1.4)"}}>
