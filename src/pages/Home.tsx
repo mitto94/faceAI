@@ -26,7 +26,7 @@ const Home: React.FC = ({history}: any) => {
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/age")}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>너의 나이를 내가 맞춰볼게! 🤔</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>너의 <span style={{color: Color.first}}>나이를</span> 내가 맞춰볼게! 🤔</span>
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push({
@@ -36,12 +36,12 @@ const Home: React.FC = ({history}: any) => {
 				}
 				})}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>나도 감정을 볼 수 있어~ 😎</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>나도 <span style={{color: Color.second}}>감정을</span> 볼 수 있어~ 😎</span>
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/relation")}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>얼마나 닮았는지 궁금해? 👀</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
 				</div>
 			 </div>
 			 <div style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "1.25rem"}}>
