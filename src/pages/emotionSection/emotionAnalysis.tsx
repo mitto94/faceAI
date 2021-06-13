@@ -124,7 +124,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
     };
 	return (
 			<div id="capture" style={{height: "100vh", maxWidth: "450px"}}>
-				<div className="container" style={{background: "#A6A998", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem", minHeight: "10vh"}}>
+				<div className="container" style={{background: "#A6A998", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem", minHeight: "10vh"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>

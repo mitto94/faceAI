@@ -72,7 +72,7 @@ const AgeAnalysis = ({history}: any) => {
 	}
 	return (
 			<div id="capture" style={{height: "100%", overflow: "auto"}}>
-				<div className="container" style={{background: "#524F4A", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
+				<div className="container" style={{background: "#524F4A", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>

@@ -83,7 +83,7 @@ const RAnalysis = ({history}: any) => {
 	let sFlag = data.distance > 0.6 ? "first" :  data.distance <= 0.6 && data.distance > 0.4 ? "second" : "third"
 	return (
         <div id="capture" style={{height: "100%", display: "flex", flexDirection: "column", width: "100%", backgroundColor: "#FFFFF6"}}>
-			<div className="container" style={{background: "#D6C1B0", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem", minHeight: "10vh"}}>
+			<div className="container" style={{background: "#D6C1B0", width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem", minHeight: "10vh"}}>
 				<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 					<i className="fas fa-home" onClick={() => history.push("/")}></i>
 				</div>

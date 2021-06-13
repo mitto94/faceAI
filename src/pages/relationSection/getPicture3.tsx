@@ -62,7 +62,7 @@ const GetPicture = ({history}: any) => {
 		{
 			!showCamera
 			? <div style={{height: "100vh", overflow: "auto"}}>
-          <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".5rem"}}>
+          <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
             <div style={{width: "2rem"}}></div>
             <div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
             <SidebarComponent />
