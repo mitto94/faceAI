@@ -87,7 +87,7 @@ const GetPicture = ({history}: any) => {
 					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>{from === "first" ? "얼척(尺)이가 보는 나의 나이" : "얼척(尺)이가 보는 나의 감정"}</div>
 					<SidebarComponent />
 				</div>				<div className="container" style={{height: "90%", backgroundColor: Color[from], filter: "brightness(1.4)", flexDirection: "column"}}>
-					<div style={{display: "flex", justifyContent: "center", fontFamily: "Sunflower, sans-serif"}}>
+					<div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 						<div className="container" style={{flexDirection: "column"}}>
 							<Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
 							<div style={{margin: ".5rem", fontSize: "1.5rem"}}>카메라</div>
@@ -100,7 +100,7 @@ const GetPicture = ({history}: any) => {
 						<input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
 					{/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714)"}}>
 					</div> */}
 				</div>

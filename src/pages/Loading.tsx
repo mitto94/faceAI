@@ -8,9 +8,10 @@ const Loading = ({random} : any) => {
 					<div className="spinner-border m-5" style={{width: "5rem", height: "5rem"}} role="status">
 						<span className="visually-hidden">Loading...</span>
 					</div>
-					<div className="loading" style={{fontSize: "1.5rem", marginBottom: "5rem", fontFamily: "Sunflower, sans-serif"}}>
-						<span>A</span>
-						<span>I</span>
+					<div className="loading" style={{fontSize: "1.5rem", marginBottom: "5rem", fontFamily: "MapoBackpacking, sans-serif"}}>
+						<span>얼</span>
+						<span>척</span>
+						<span>이</span>
 						<span>가</span>
 						<span>&nbsp;</span>
 						<span>분</span>
@@ -25,7 +26,7 @@ const Loading = ({random} : any) => {
 					</div>
 				</div>
 				<div>
-					<pre className="container" style={{width: "100vw", height: "25vh", fontSize: "1.35rem", textAlign: "center", fontFamily: "Stylish, sans-serif"}}>{random}</pre>
+					<pre className="container" style={{width: "100vw", height: "25vh", fontSize: "1.25rem", textAlign: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>{random}</pre>
 				</div>
 			</div>
 	);

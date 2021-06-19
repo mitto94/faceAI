@@ -11,6 +11,7 @@
     "@types/node": "^12.20.10",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "aos": "^2.3.4",
     "chart.js": "^3.2.1",
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",

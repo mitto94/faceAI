@@ -139,15 +139,15 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "Cute Font, cursive", height: "42%"}}>
+							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "MapoBackpacking, cursive", height: "41%"}}>
 								{emotionChart.labels.length !== 0
 								&& 
 								<Bar data={emotionChart} type={""}/>
 								}
-								<label style={{textAlign: "center", fontSize: "1.8rem", marginBottom: "10%"}}>{`당신의 기분은`}
+								<label style={{textAlign: "center", fontSize: "1.4rem", marginBottom: "10%"}}>{`당신의 기분은`}
 								<br></br>
-								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[0]}`}</span>{`이거나 ` }
-								<span style={{color: "purple", fontFamily: "Cute Font, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
+								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[0]}`}</span>{`이거나 ` }
+								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>

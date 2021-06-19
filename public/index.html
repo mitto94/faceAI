@@ -29,6 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -58,6 +59,17 @@
     -->
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
   </body>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    delay: 200, // values from 0 to 3000, with step 50m
+    duration: 1500, // values from 0 to 3000, with step 50ms
+    once: true, // whether animation should happen only once - while  down
+    mirror: true, // whether elements should animate out while scrolling past them
+
+  });
+  </script>
   <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
   <!-- <script src="js/html2canvas.js"></script> -->
   <!-- <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script> -->

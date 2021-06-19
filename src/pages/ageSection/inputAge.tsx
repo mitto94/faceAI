@@ -45,7 +45,7 @@ const InputAge: React.FC = ({history}: any) => {
 				<div className="container" style={{height: "90%", flexDirection: "column" , backgroundColor: Color.first, filter: "brightness(1.4)"}}>
 					<div className="container">
 						<InputNumber inputStyle={{fontSize: "2rem", width: "5rem", textAlign: "center", marginLeft: "6rem", border: "1px solid gray"}} value={age} onValueChange={(e: any) => setAge(e.value)} min={0} max={140} />
-						<span style={{fontFamily: "Stylish, sans-serif", fontSize: "2rem"}}>살</span>
+						<span style={{fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "2rem"}}>살</span>
 						<Button
 							onClick={() => {history.push({
 								pathname: "age_photo",
@@ -58,7 +58,7 @@ const InputAge: React.FC = ({history}: any) => {
 							label="입력"
 						/>
 					</div>
-					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "Sunflower, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
+					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}} data-aos="zoom-in" data-aos-delay="200">{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
 				</div>
 				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)", width: "320px", height: "100px"}}>
 					</div>

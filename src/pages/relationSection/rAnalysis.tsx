@@ -92,7 +92,7 @@ const RAnalysis = ({history}: any) => {
 			</div>
 			<div style={{backgroundColor: "#FFFFF6", width: "100%", height: "100%", maxWidth: "450px", textAlign: "center"}}> 
 				<>
-					<div className="container" style={{height: "37vh",  display: `${data.finish ? "flex" : "none"}`, justifyContent: "center", fontFamily: "Stylish, sans-serif", fontSize: "1.3rem"}}>
+					<div className="container" style={{height: "37vh",  display: `${data.finish ? "flex" : "none"}`, justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "1.3rem"}}>
 						<div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "0.5rem"}}>
 							<img ref={(ref) => imageRef1 = ref} style={{width: "40vw", height: "30vh", maxWidth: "170px"}}></img>
 							<label>사진 1</label>
@@ -104,13 +104,13 @@ const RAnalysis = ({history}: any) => {
 					</div>
 					{data.finish ?
 						<>
-						<div style={{display: "flex", justifyContent: "center"}}>
+						<div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold"}}>
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "30vw", maxHeight: "16.5vh", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>안 닮음</div>
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>조금 닮음</div>
 							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>
 						</div>
-						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "Sunflower, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
-						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
+						<div className="container" style={{fontSize: "1.6rem", padding: "1.2rem", filter: "brightness(0.5)", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
+						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "1.4rem", textAlign: "center", fontFamily: "MapoBackpacking, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center", height: "15vh", alignItems: "center"}}>
 							<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 						</div>

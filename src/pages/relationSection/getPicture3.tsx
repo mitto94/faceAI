@@ -80,7 +80,7 @@ const GetPicture = ({history}: any) => {
                         {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "35%", bottom: "31vh"}}/>}
                       </div>
                     </div>
-                    <div style={{display: "flex", justifyContent: "center", fontFamily: "Sunflower, sans-serif"}}>
+                    <div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
                   
                       <div className="container" style={{flexDirection: "column"}}>
                         <Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
@@ -93,7 +93,7 @@ const GetPicture = ({history}: any) => {
                         <input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						              style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "Sunflower, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
                     <Button style={{background: "#8B4513", border: "none", minHeight: "2rem"}} className="m-4 p-button-secondary" label="AI로 비교하기" onClick={() => {
                       if (image && secondImage) {
                             history.push({
@@ -103,7 +103,7 @@ const GetPicture = ({history}: any) => {
                         return;
                       }
                     }}></Button>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "Sunflower, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
 				</div>
 			</div>
 			:

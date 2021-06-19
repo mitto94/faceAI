@@ -87,7 +87,7 @@ const AgeAnalysis = ({history}: any) => {
 						{photoInfo.finish
 						?
 						<>
-							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "Stylish, sans-serif"}}>
+							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "30vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
 									<div style={{fontWeight: 600, fontSize: "1.6rem", margin: "0.55rem"}}>실제 나이</div>
 									<span style={{fontWeight: 550, fontSize: "1.6rem"}}>{age} 살</span>
@@ -98,7 +98,7 @@ const AgeAnalysis = ({history}: any) => {
 								</div>
 							</div>
 							<div style={{display: "flex", flexDirection: "column", width: "100%", alignItems: "center"}}>
-								<pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "2rem", textAlign: "center", fontFamily: "Cute Font, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
+								<pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "1.4rem", textAlign: "center", fontFamily: "MapoBackpacking, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
 							</div>
 							<div style={{display: "flex", justifyContent: "center", height: "12vh", alignItems: "center", width: "100%"}}>
 								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>

@@ -4,6 +4,27 @@ import SidebarComponent from '../components/Sidebar';
 
 const Home: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
+	// React.useEffect(() => {
+	// 	let home1: any = document.getElementById("home1");
+	// 	if (!home1.getAttribute('data-aos')) {
+	// 		home1.setAttribute('data-aos', 'fade-down');
+	// 		home1.setAttribute('data-aos-delay', '200');
+	// 	} else {
+	// 	  	home1.removeAttribute('data-aos');
+	// 		home1.removeAttribute('data-aos-delay');
+	// 	}
+	// 	let home2: any = document.getElementById("home2");
+	// 	console.log("home2", home2["data-aos"]);
+	// 	console.log("home2", home2);
+	// 	if (!home2.getAttribute('data-aos')) {
+	// 		home2.setAttribute('data-aos', 'zoom-in');
+	// 		home2.setAttribute('data-aos-delay', '1200');
+	// 		setTimeout(() => {
+	// 		home2.removeAttribute('data-aos');
+	// 	}, 1500)
+	// 	}
+	// 	console.log("didmount")
+	// }, [])
 	window.history.replaceState(null, null as any, "/");
 	return (
 		// <div style={{height: "100%", display: "flex", flexDirection: "column", background: Color.first, backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`}}>
@@ -18,7 +39,7 @@ const Home: React.FC = ({history}: any) => {
 					<img style={{width: "100%", maxHeight: "100%"}} src="robo.PNG"></img>
 				</div>
 				<div style={{width: "100%", marginTop: "45%", marginLeft: "-3%"}}>
-					<div style={{height: "5%", width: "33%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre"}}>
+					<div id="home1" style={{height: "5%", width: "33%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "10rem"}}>
 						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking"}}>내가 얼척이야~</span>
 						<div style={{width: 0, height: 0, borderLeft: "1vh solid transparent", borderRight: "1vh solid transparent", borderTop: "2vh solid white", position: "absolute", top: "0%", left: "-6%", transform: "rotate(120deg)"}}></div>
 					</div>
@@ -44,7 +65,7 @@ const Home: React.FC = ({history}: any) => {
 					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
 				</div>
 			 </div>
-			 <div style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "1.25rem"}}>
+			 <div id="home2" style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "1.25rem"}}>
 			 	위 말풍선을 클릭하여 확인해 보세요
 			 </div>
 		</div>
