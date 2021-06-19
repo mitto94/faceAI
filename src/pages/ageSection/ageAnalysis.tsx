@@ -51,7 +51,7 @@ const AgeAnalysis = ({history}: any) => {
 					return null;
 				} 
 				setPhotoInfo({
-					age: parseInt(canvas2.age > 35 ? canvas2.age - 6 : canvas2.age),
+					age: parseInt(canvas2.age > 30 ? canvas2.age > 45 ? canvas2.age - 10 : canvas2.age - 5 : canvas2.age),
 					finish: true
 				})
 			}
