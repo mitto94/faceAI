@@ -35,7 +35,7 @@ const InputRelationship: React.FC = ({history}: any) => {
         <div style={{height: "100vh"}}>
             <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 				<div style={{width: "2rem"}}></div>
-				<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
+				<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
 				<SidebarComponent />
 			</div>
             <div className="container" style={{width: "100%", height: "90%", background: Color["third"], filter: "brightness(1.4)", flexDirection: "column", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
@@ -48,7 +48,7 @@ const InputRelationship: React.FC = ({history}: any) => {
                         }
                     })}>
                     <i style={{fontSize: "3.5rem"}} className="p-3 fas fa-house-user"></i>
-                    <label style={{fontSize: "1.5rem"}} className="">가족</label>
+                    <label style={{fontSize: "5.5vw"}} className="">가족</label>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer", margin: ".5rem"}}
                     onClick={() => history.push({
@@ -59,7 +59,7 @@ const InputRelationship: React.FC = ({history}: any) => {
                         }
                     })}>                    
                     <i style={{fontSize: "3.5rem"}} className="p-3 fas fa-users"></i>
-                    <label style={{fontSize: "1.5rem"}} className="">친구</label>
+                    <label style={{fontSize: "5.5vw"}} className="">친구</label>
                 </div>
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", cursor: "pointer", margin: ".5rem"}}
                     onClick={() => history.push({
@@ -70,10 +70,10 @@ const InputRelationship: React.FC = ({history}: any) => {
                         }
                     })}>                    
                     <i style={{fontSize: "3.5rem"}} className="p-3 fas fa-heart"></i>
-                    <label style={{fontSize: "1.5rem"}} className="">커플</label>
+                    <label style={{fontSize: "5.5vw"}} className="">커플</label>
                 </div>
                 </div>
-                <div style={{margin: "2rem", fontSize: "1.45rem", fontFamily: "MapoBackpacking, sans-serif"}}>둘은 어떤 관계인가요?</div>
+                <div style={{margin: "2rem", fontSize: "6vw", fontFamily: "MapoBackpacking, sans-serif"}}>둘은 어떤 관계인가요?</div>
             </div>
             <div className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)"}}>
 				</div>

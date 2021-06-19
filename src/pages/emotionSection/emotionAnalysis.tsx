@@ -128,13 +128,13 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>
-					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 감정</div>
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 감정</div>
 					<SidebarComponent />
 				</div>
 				<div style={{backgroundColor:"#E8EDD5", width: "100%", height: "95%", maxWidth: "450px", }}> 
 					<>
-						<div className="container" style={{maxHeight: "40%", height: "40%", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
-							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "40vh", maxWidth: "270px"}} crossOrigin='anonymous'/>
+						<div className="container" style={{maxHeight: "40%", height: "35%", display: `${photoInfo.finish ? "flex" : "none"}`, paddingTop: "10%"}}>
+							<img ref={(ref) => imageRef = ref} style={{width: "45vw", textAlign: "center", maxHeight: "35vh", maxWidth: "270px"}} crossOrigin='anonymous'/>
 						</div>
 						{photoInfo.finish
 						?
@@ -144,14 +144,14 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 								&& 
 								<Bar data={emotionChart} type={""}/>
 								}
-								<label style={{textAlign: "center", fontSize: "1.4rem", marginBottom: "10%"}}>{`당신의 기분은`}
+								<label style={{textAlign: "center", fontSize: "5.5vw", marginBottom: "10%"}}>{`당신의 기분은`}
 								<br></br>
 								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[0]}`}</span>{`이거나 ` }
 								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
-								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
+								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6", fontSize: "4.5vw"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 							</div>
 						</>

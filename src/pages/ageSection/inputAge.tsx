@@ -39,13 +39,13 @@ const InputAge: React.FC = ({history}: any) => {
 			<div style={{height: "100vh"}}>
         		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
 					<SidebarComponent />
 				</div>
 				<div className="container" style={{height: "90%", flexDirection: "column" , backgroundColor: Color.first, filter: "brightness(1.4)"}}>
 					<div className="container">
-						<InputNumber inputStyle={{fontSize: "2rem", width: "5rem", textAlign: "center", marginLeft: "6rem", border: "1px solid gray"}} value={age} onValueChange={(e: any) => setAge(e.value)} min={0} max={140} />
-						<span style={{fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "2rem"}}>살</span>
+						<InputNumber inputStyle={{fontSize: "8vw", width: "5rem", textAlign: "center", marginLeft: "6rem", border: "1px solid gray"}} value={age} onValueChange={(e: any) => setAge(e.value)} min={0} max={140} />
+						<span style={{fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "8vw"}}>살</span>
 						<Button
 							onClick={() => {history.push({
 								pathname: "age_photo",
@@ -58,7 +58,8 @@ const InputAge: React.FC = ({history}: any) => {
 							label="입력"
 						/>
 					</div>
-					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}} data-aos="zoom-in" data-aos-delay="200">{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
+					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "6vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
+					{/* <pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}} data-aos="zoom-in" data-aos-delay="200">{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre> */}
 				</div>
 				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)", width: "320px", height: "100px"}}>
 					</div>

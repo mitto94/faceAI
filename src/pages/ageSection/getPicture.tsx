@@ -84,23 +84,23 @@ const GetPicture = ({history}: any) => {
 			? <div style={{height: "100vh"}}>
 				<div className="container" style={{background: `${from === "first" ? Color.zero : Color.second}`, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>{from === "first" ? "얼척(尺)이가 보는 나의 나이" : "얼척(尺)이가 보는 나의 감정"}</div>
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{from === "first" ? "얼척(尺)이가 보는 나의 나이" : "얼척(尺)이가 보는 나의 감정"}</div>
 					<SidebarComponent />
 				</div>				<div className="container" style={{height: "90%", backgroundColor: Color[from], filter: "brightness(1.4)", flexDirection: "column"}}>
 					<div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 						<div className="container" style={{flexDirection: "column"}}>
 							<Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
-							<div style={{margin: ".5rem", fontSize: "1.5rem"}}>카메라</div>
+							<div style={{margin: ".5rem", fontSize: "6vw"}}>카메라</div>
 						</div>
 						<div className="container" style={{flexDirection: "column"}}>
 							<Button icon="far fa-images" className="mt-3 p-4 p-button-outlined p-button-success pictureBtn" 
 							onClick={getAlbum} />
-							<div style={{margin: ".5rem", fontSize: "1.5rem"}}>앨범</div>
+							<div style={{margin: ".5rem", fontSize: "6vw"}}>앨범</div>
 						</div>
 						<input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "6vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
 					{/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714)"}}>
 					</div> */}
 				</div>

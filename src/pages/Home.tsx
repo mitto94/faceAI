@@ -31,7 +31,7 @@ const Home: React.FC = ({history}: any) => {
 		<div style={{height: "100%", display: "flex", flexDirection: "column", background: Color.first, overflow: "hidden"}}>
 			<div className="container" style={{background: Color["zero"], width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 				<div style={{width: "2rem"}}></div>
-	 			<div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 나의 얼굴</div>
+	 			<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 얼굴</div>
 	 			<SidebarComponent />
 	 		</div>
 			 <div style={{height: "45%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "-5%", width: "100%", marginLeft: "33%"}}>
@@ -39,15 +39,15 @@ const Home: React.FC = ({history}: any) => {
 					<img style={{width: "100%", maxHeight: "100%"}} src="robo.PNG"></img>
 				</div>
 				<div style={{width: "100%", marginTop: "45%", marginLeft: "-3%"}}>
-					<div id="home1" style={{height: "5%", width: "33%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "10rem"}}>
-						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking"}}>내가 얼척이야~</span>
+					<div id="home1" style={{height: "4%", width: "30%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "10rem"}}>
+						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking", fontSize: "4vw"}}>내가 얼척이야~</span>
 						<div style={{width: 0, height: 0, borderLeft: "1vh solid transparent", borderRight: "1vh solid transparent", borderTop: "2vh solid white", position: "absolute", top: "0%", left: "-6%", transform: "rotate(120deg)"}}></div>
 					</div>
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/age")}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>너의 <span style={{color: Color.first}}>나이를</span> 내가 맞춰볼게! 🤔</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>너의 <span style={{color: Color.first}}>나이를</span> 내가 맞춰볼게! 🤔</span>
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push({
@@ -57,15 +57,15 @@ const Home: React.FC = ({history}: any) => {
 				}
 				})}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>나도 <span style={{color: Color.second}}>감정을</span> 볼 수 있어~ 😎</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>나도 <span style={{color: Color.second}}>감정을</span> 볼 수 있어~ 😎</span>
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/relation")}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "1.25rem", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
+					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
 				</div>
 			 </div>
-			 <div id="home2" style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "1.25rem"}}>
+			 <div id="home2" style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "5.5vw"}}>
 			 	위 말풍선을 클릭하여 확인해 보세요
 			 </div>
 		</div>

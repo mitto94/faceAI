@@ -64,36 +64,36 @@ const GetPicture = ({history}: any) => {
 			? <div style={{height: "100vh", overflow: "auto"}}>
           <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
             <div style={{width: "2rem"}}></div>
-            <div className="container" style={{color: "white", fontSize: "1.25rem", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
+            <div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
             <SidebarComponent />
           </div>
           <div className="container" style={{height: "100%", backgroundColor: Color[from], justifyContent: "flex-start",flexDirection: "column", filter: "brightness(1.4)"}}>
-                    <div style={{height: "33vh", display: "flex", alignItems: "start", marginTop: "1rem"}}>
+                    <div style={{height: "28vh", display: "flex", alignItems: "start", marginTop: "1rem"}}>
                         {/* <div className="m-2 container" style={{width: "40vw", height: "15vh", border: "1px dashed black"}}>Image Area<img style={{width: "10rem", height: "10rem", position: "absolute"}} src={image as any && image}></img></div>    
                         <div ref={image2} className="m-2 container" style={{width: "40vw", height: "15vh", border: "1px dashed black"}}>Image Area</div>     */}
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                        <img ref={(ref) => image1 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={image ? image : `./basic.jpeg`}></img>
-                        {image && <Button onClick={() => setImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "35%", bottom: "31vh"}} />}
+                        <img ref={(ref) => image1 = ref} style={{width: "34vw", height: "27vh", margin: ".5rem", maxWidth: "130px"}} src={image ? image : `./basic.jpeg`} onClick={takePicture}></img>
+                        {image && <Button onClick={() => setImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "34%", bottom: "28vh"}} />}
                       </div>
                       <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                        <img ref={(ref) => image2 = ref} style={{width: "40vw", height: "30vh", margin: ".5rem", maxWidth: "130px"}} src={secondImage ? secondImage : `./basic.jpeg`}></img>
-                        {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "35%", bottom: "31vh"}}/>}
+                        <img ref={(ref) => image2 = ref} style={{width: "34vw", height: "27vh", margin: ".5rem", maxWidth: "130px"}} src={secondImage ? secondImage : `./basic.jpeg`} onClick={takePicture}></img>
+                        {secondImage && <Button onClick={() => setSecondImage(null)} icon="pi pi-times" style={{background: "red", border: "none", width: "1.75rem", height: "1.75rem", display: "absolute", left: "34%", bottom: "28vh"}}/>}
                       </div>
                     </div>
                     <div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
                   
                       <div className="container" style={{flexDirection: "column"}}>
-                        <Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
-                        <div style={{margin: ".5rem", fontSize: "1.5rem"}}>카메라</div>
+                        <Button icon="fas fa-camera" onClick={takePicture} className="mt-2 p-3 p-button-outlined p-button-info pictureBtn" />
+                        <div style={{margin: ".5rem", fontSize: "6vw"}}>카메라</div>
 						          </div>
                       <div className="container" style={{flexDirection: "column"}}>
-                        <Button icon="far fa-images" onClick={getAlbum} className="mt-3 p-4 p-button-outlined p-button-success pictureBtn" />
-                        <div style={{margin: ".5rem", fontSize: "1.5rem"}}>앨범</div>
+                        <Button icon="far fa-images" onClick={getAlbum} className="mt-2 p-3 p-button-outlined p-button-success pictureBtn" />
+                        <div style={{margin: ".5rem", fontSize: "6vw"}}>앨범</div>
 						          </div>
                         <input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						              style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
                     <Button style={{background: "#8B4513", border: "none", minHeight: "2rem"}} className="m-4 p-button-secondary" label="AI로 비교하기" onClick={() => {
                       if (image && secondImage) {
                             history.push({
@@ -103,7 +103,7 @@ const GetPicture = ({history}: any) => {
                         return;
                       }
                     }}></Button>
-                    <div className="container" style={{textAlign: "center", fontSize: "1.35rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
+                    <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
 				</div>
 			</div>
 			:
