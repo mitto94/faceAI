@@ -26,9 +26,9 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 		word = randomItem(Sentence.ad);
 	}
 	React.useEffect(() => {
-		if ((window as any).ReactNativeWebView) {
-			(window as any).ReactNativeWebView.postMessage("all");
-		}
+		// if ((window as any).ReactNativeWebView) {
+		// 	(window as any).ReactNativeWebView.postMessage("all");
+		// }
 		const getAi = async () => {
 			await Promise.all([
 				faceapi.nets.faceExpressionNet.loadFromUri('/models'),

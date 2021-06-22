@@ -29,9 +29,9 @@ const AgeAnalysis = ({history}: any) => {
 		word = randomItem(Sentence.ad);
 	}
 	React.useEffect(() => {
-		if ((window as any).ReactNativeWebView) {
-			(window as any).ReactNativeWebView.postMessage("all");
-		}
+		// if ((window as any).ReactNativeWebView) {
+		// 	(window as any).ReactNativeWebView.postMessage("all");
+		// }
 		const getAi = async () => {
 			await Promise.all([
 				faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
@@ -51,7 +51,7 @@ const AgeAnalysis = ({history}: any) => {
 					return null;
 				} 
 				setPhotoInfo({
-					age: parseInt(canvas2.age > 30 ? canvas2.age > 45 ? canvas2.age - 10 : canvas2.age - 5 : canvas2.age),
+					age: parseInt(canvas2.age > 29 ? canvas2.age > 45 ? canvas2.age - 10 : canvas2.age - 5 : canvas2.age),
 					finish: true
 				})
 			}

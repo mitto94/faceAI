@@ -17,9 +17,9 @@ const RAnalysis = ({history}: any) => {
 	let imageRef1: any = React.createRef();
 	let imageRef2: any = React.createRef();
 	React.useEffect(() => {
-		if ((window as any).ReactNativeWebView) {
-			(window as any).ReactNativeWebView.postMessage("all");
-		}
+		// if ((window as any).ReactNativeWebView) {
+		// 	(window as any).ReactNativeWebView.postMessage("all");
+		// }
 		const getAi = async () => {
 			await Promise.all([
 				faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
