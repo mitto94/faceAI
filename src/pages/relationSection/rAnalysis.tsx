@@ -55,7 +55,7 @@ const RAnalysis = ({history}: any) => {
 					return;
 				}
 				setData({
-					distance: data,
+					distance: data + 0.1,
 					finish: true
 				})
 			}
