@@ -13,7 +13,8 @@ const GetPicture = ({history}: any) => {
 	const [image, setImage] = React.useState<string | null>(null);
 	const [showCamera, setShowCamera] = React.useState(false);
 	const location: any = useLocation();
-	const {from, age} = location?.state;
+	const {from, age, lan} = location?.state;
+	// const lan = location?.state.lan as string;
 	React.useEffect(() => {
 		let ins: any = document.createElement('ins');
         let scr: any = document.createElement('script');
@@ -56,7 +57,8 @@ const GetPicture = ({history}: any) => {
 						state: {
 							photo,
 							age,
-							from: "first"
+							from: "first",
+							lan
 						}
 					})
 					break;
@@ -65,7 +67,8 @@ const GetPicture = ({history}: any) => {
 						pathname: "/emotion_analysis",
 						state: {
 							photo,
-							from: "second"
+							from: "second",
+							lan
 						}
 					})
 					break;
@@ -84,23 +87,24 @@ const GetPicture = ({history}: any) => {
 			? <div style={{height: "100vh"}}>
 				<div className="container" style={{background: `${from === "first" ? Color.zero : Color.second}`, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{from === "first" ? "얼척(尺)이가 보는 나의 나이" : "얼척(尺)이가 보는 나의 감정"}</div>
-					<SidebarComponent />
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{from === "first" ? lan === "ko" ? "얼척(尺)이가 보는 나의 나이" : "My age that facepago sees" : lan === "ko" ? "얼척(尺)이가 보는 나의 감정" : "My emo that Facepago sees"}</div>
+					<SidebarComponent lan={lan}/>
 				</div>				<div className="container" style={{height: "90%", backgroundColor: Color[from], filter: "brightness(1.4)", flexDirection: "column"}}>
 					<div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 						<div className="container" style={{flexDirection: "column"}}>
 							<Button icon="fas fa-camera" onClick={takePicture} className="mt-3 p-4 p-button-outlined p-button-info pictureBtn" />
-							<div style={{margin: ".5rem", fontSize: "6vw"}}>카메라</div>
+							<div style={{margin: ".5rem", fontSize: "6vw"}}>{lan === "ko" ? "카메라" : "Camera"}</div>
 						</div>
 						<div className="container" style={{flexDirection: "column"}}>
 							<Button icon="far fa-images" className="mt-3 p-4 p-button-outlined p-button-success pictureBtn" 
 							onClick={getAlbum} />
-							<div style={{margin: ".5rem", fontSize: "6vw"}}>앨범</div>
+							<div style={{margin: ".5rem", fontSize: "6vw"}}>{lan === "ko" ? "앨범" : "Album"}</div>
 						</div>
 						<input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "6vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
+                    {lan === "ko" ? <div className="container" style={{textAlign: "center", fontSize: "6vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>위 버튼을 클릭하여 <br></br> 사진을 가져오세요</div>
+					: <div className="container" style={{textAlign: "center", fontSize: "6vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "2rem"}}>Click the button above <br></br> to get the picture</div>}
 					{/* <div className="ad-banner" style={{position: "absolute", bottom: 0, filter: "brightness(0.714)"}}>
 					</div> */}
 				</div>
@@ -148,7 +152,8 @@ const GetPicture = ({history}: any) => {
 											state: {
 												photo,
 												age,
-												from: "first"
+												from: "first",
+												lan
 											}
 										})
 										break;
@@ -157,14 +162,15 @@ const GetPicture = ({history}: any) => {
 											pathname: "/emotion_analysis",
 											state: {
 												photo,
-												from: "second"
+												from: "second",
+												lan
 											}
 										})
 										break;
 									case "third":
 										history.push({
 											pathname: "/relation_analysis",
-											state: {photo}
+											state: {photo, lan}
 										})
 										break;
 								}

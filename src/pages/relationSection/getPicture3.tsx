@@ -30,6 +30,7 @@ const GetPicture = ({history}: any) => {
   let image2: any = React.createRef();
 	const age = location?.state?.age;
 	const from = location?.state?.from;
+	const lan = location?.state?.lan;
   const relation = location?.state?.relation;
 	const takePicture = (e?: any) => {
 		setShowCamera(true);
@@ -64,8 +65,8 @@ const GetPicture = ({history}: any) => {
 			? <div style={{height: "100vh", overflow: "auto"}}>
           <div className="container" style={{background: Color.third, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
             <div style={{width: "2rem"}}></div>
-            <div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
-            <SidebarComponent />
+            <div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? "얼척(尺)이가 보는 우리 얼굴" : "Our faces that Facepago sees"}</div>
+            <SidebarComponent lan={lan}/>
           </div>
           <div className="container" style={{height: "100%", backgroundColor: Color[from], justifyContent: "flex-start",flexDirection: "column", filter: "brightness(1.4)"}}>
                     <div style={{height: "28vh", display: "flex", alignItems: "start", marginTop: "1rem"}}>
@@ -84,26 +85,28 @@ const GetPicture = ({history}: any) => {
                   
                       <div className="container" style={{flexDirection: "column"}}>
                         <Button icon="fas fa-camera" onClick={takePicture} className="mt-2 p-3 p-button-outlined p-button-info pictureBtn" />
-                        <div style={{margin: ".5rem", fontSize: "6vw"}}>카메라</div>
+                        <div style={{margin: ".5rem", fontSize: "6vw"}}>{lan === "ko" ? "카메라" : "Camera"}</div>
 						          </div>
                       <div className="container" style={{flexDirection: "column"}}>
                         <Button icon="far fa-images" onClick={getAlbum} className="mt-2 p-3 p-button-outlined p-button-success pictureBtn" />
-                        <div style={{margin: ".5rem", fontSize: "6vw"}}>앨범</div>
+                        <div style={{margin: ".5rem", fontSize: "6vw"}}>{lan === "ko" ? "앨범" : "Album"}</div>
 						          </div>
                         <input id="e_album" type="file" onChange={(e) => {onFileUpload(e)}} accept="image/*"
 						              style={{display: "none"}}></input>
                     </div>
-                    <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
-                    <Button style={{background: "#8B4513", border: "none", minHeight: "2rem"}} className="m-4 p-button-secondary" label="AI로 비교하기" onClick={() => {
+                    {lan === "ko" ? <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>위 버튼을 통해서 비교하고 싶은 <br></br> 두 장의 사진을 가져오세요</div>
+                    : <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", marginTop: "1rem"}}>Please bring two pictures that <br></br> you want to compare</div>}
+                    <Button style={{background: "#8B4513", border: "none", minHeight: "2rem"}} className="m-4 p-button-secondary" label={lan === "ko" ? "AI로 비교하기" : "Check with AI"} onClick={() => {
                       if (image && secondImage) {
                             history.push({
                             pathname: "/relation_analysis",
-                            state: {image, secondImage, from, relation}
+                            state: {image, secondImage, from, relation, lan}
                         })
                         return;
                       }
                     }}></Button>
-                    <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
+                    {lan === "ko" ? <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>사진을 가져 온 후 <br></br> 위 버튼을 누르세요</div>
+                    : <div className="container" style={{textAlign: "center", fontSize: "5.5vw", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>Bring the picture and <br></br> press the check button</div>}
 				</div>
 			</div>
 			:

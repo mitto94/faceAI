@@ -3,7 +3,7 @@ import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import Loading from '../Loading';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
-import { AgeSentence, Color, Sentence } from '../../faceAnalysis';
+import { AgeSentence, Color, Sentence, EnAgeSentence } from '../../faceAnalysis';
 import SidebarComponent from '../../components/Sidebar';
 let word= "";
 const AgeAnalysis = ({history}: any) => {
@@ -18,6 +18,8 @@ const AgeAnalysis = ({history}: any) => {
 	const photo = location?.state?.photo;
 	let from = location?.state?.from;
 	let age = location?.state?.age;
+	let lan = location?.state?.lan;
+
 	let tag = false;
 	let imageRef: any = React.createRef();
 	const pathname = location.pathname
@@ -76,8 +78,8 @@ const AgeAnalysis = ({history}: any) => {
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>
-					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
-					<SidebarComponent />
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? "얼척(尺)이가 보는 나의 나이" : "My age that Facepago sees"}</div>
+					<SidebarComponent lan={lan}/>
 				</div>		
 				<div style={{backgroundColor: "white", width: "100%", height: "90%", maxWidth: "450px", }}> 
 					<>
@@ -89,23 +91,26 @@ const AgeAnalysis = ({history}: any) => {
 						<>
 							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "29vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
-									<div style={{fontWeight: 600, fontSize: "6.5vw", margin: "0.55rem"}}>실제 나이</div>
-									<span style={{fontWeight: 550, fontSize: "6.5vw"}}>{age} 살</span>
+								{lan === "ko" ? <div style={{fontWeight: 600, fontSize: "6.5vw", margin: "0.55rem"}}>실제 나이</div>
+									: <div style={{fontWeight: 600, fontSize: "5.5vw", margin: "0.55rem"}}>Predicted age</div>}
+									<span style={{fontWeight: 550, fontSize: "6.5vw"}}>{age} {lan === "ko" ? " 살" : " yo"}</span>
 								</div>
 								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "29vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
-									<div style={{fontWeight: 600, fontSize: "6.5vw", margin: "0.55rem"}}>예측 나이</div>
-									<span style={{fontWeight: 550, fontSize: "6.5vw", color: "purple"}}>{photoInfo.age} 살</span>
+									{lan === "ko" ? <div style={{fontWeight: 600, fontSize: "6.5vw", margin: "0.55rem"}}>예측 나이</div>
+									: <div style={{fontWeight: 600, fontSize: "5.5vw", margin: "0.55rem"}}>Predicted age</div>}
+									<span style={{fontWeight: 550, fontSize: "6.5vw", color: "purple"}}>{photoInfo.age}{lan === "ko" ? " 살" : " yo"}</span>
 								</div>
 							</div>
 							<div style={{display: "flex", flexDirection: "column", width: "100%", alignItems: "center"}}>
-								<pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "6vw", textAlign: "center", fontFamily: "MapoBackpacking, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
+								{lan === "ko" ? <pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "6vw", textAlign: "center", fontFamily: "MapoBackpacking, cursive"}}>{age < photoInfo.age ? randomItem(AgeSentence.over) : age > photoInfo.age ? randomItem(AgeSentence.under) : randomItem(AgeSentence.same)}</pre>
+								: <pre className="container" style={{width: "100%", height: "14.5vh", fontSize: "6vw", textAlign: "center", fontFamily: "MapoBackpacking, cursive"}}>{age < photoInfo.age ? randomItem(EnAgeSentence.over) : age > photoInfo.age ? randomItem(EnAgeSentence.under) : randomItem(EnAgeSentence.same)}</pre>}
 							</div>
 							<div style={{display: "flex", justifyContent: "center", height: "12vh", alignItems: "center", width: "100%"}}>
 								<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6", fontSize: "4.5vw"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 							</div>
 						</>
 						:
-						<Loading random={word} />
+						<Loading random={word} lan={lan}/>
 						}
 					</>
 				</div>

@@ -15,8 +15,10 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 		finish: false
 	})
     let emotionChart = {datasets: [] as any, labels: []};
+	let enEmotionChart = {datasets: [] as any, labels: []};
 	const location: any = useLocation();
 	const photo = location?.state?.photo;
+	const lan = location?.state?.lan;
 	let from = location?.state?.from;
 	let imageRef: any = React.createRef();
 	const randomItem = (a: Array<string>) => {
@@ -65,7 +67,8 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 			accept: () => {history.push({
 				pathname: "age_photo",
 				state: {
-					from: "second"
+					from: "second",
+					lan
 				}
 			})},
 			reject: () => history.push("/"),
@@ -89,8 +92,8 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
             case "sad": return "blue";
         };
     }
-    let num = [{label: '나의 감정', data: [] as any, backgroundColor: [] as any}];
-    let labels = [] as any;
+    let num = [{label: lan === "ko" ? '나의 감정' : "My emotions", data: [] as any, backgroundColor: [] as any}];
+    let labels = [] as any, enLabels = [] as any;
     emotionHash.forEach((item) => {
 		let data;
 		switch(item.name) {
@@ -105,11 +108,16 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
         num[0].data.push(item.value);
         num[0].backgroundColor.push(colorMaker(item.name));
         labels.push(data);
+		enLabels.push(item.name)
     });
     emotionChart = {
         datasets: num,
-        labels: labels
+        labels: labels,
     }
+	enEmotionChart = {
+		datasets: num,
+        labels: enLabels,
+	}
     let lightOptions = {
         legend: {
             labels: {
@@ -128,8 +136,8 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 					<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 						<i className="fas fa-home" onClick={() => history.push("/")}></i>
 					</div>
-					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 감정</div>
-					<SidebarComponent />
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? "얼척(尺)이가 보는 나의 감정" : "My emo that Facepago sees"}</div>
+					<SidebarComponent lan={lan}/>
 				</div>
 				<div style={{backgroundColor:"#E8EDD5", width: "100%", height: "95%", maxWidth: "450px", }}> 
 					<>
@@ -142,12 +150,16 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 							<div style={{display: "flex", justifyContent: "center", flexDirection: "column", margin: "1rem", paddingTop: "10%", fontFamily: "MapoBackpacking, cursive", height: "41%"}}>
 								{emotionChart.labels.length !== 0
 								&& 
-								<Bar data={emotionChart} type={""}/>
+								<Bar data={lan === "ko" ? emotionChart : enEmotionChart} type={""}/>
 								}
-								<label style={{textAlign: "center", fontSize: "5.5vw", marginBottom: "10%"}}>{`당신의 기분은`}
+								{lan === "ko" ? <label style={{textAlign: "center", fontSize: "5.5vw", marginBottom: "10%"}}>{`당신의 기분은`}
 								<br></br>
 								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[0]}`}</span>{`이거나 ` }
 								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${emotionChart.labels[1]}`}</span>{`일 것 같아요`}</label>
+								: <label style={{textAlign: "center", fontSize: "5.5vw", marginBottom: "10%"}}>{`I think your feelings are either`}
+								<br></br>
+								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${enEmotionChart.labels[0]}`}</span>{` or ` }
+								<span style={{color: "purple", fontFamily: "MapoBackpacking, cursive"}}>{`${enEmotionChart.labels[1]}`}</span></label>}
 							</div>
 							<div style={{display: "flex", justifyContent: "center"}}>
 							<div style={{display: "flex", justifyContent: "center", height: "8vh", alignItems: "center"}}>
@@ -156,7 +168,7 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 							</div>
 						</>
 						:
-						<Loading random={word}/>
+						<Loading random={word} lan={lan}/>
 						}
 					</>
 				</div>

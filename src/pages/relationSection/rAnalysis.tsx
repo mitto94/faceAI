@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Color, Relation, Sentence } from '../../faceAnalysis';
+import { Color, Relation, Sentence, EnRelation } from '../../faceAnalysis';
 import * as faceapi from 'face-api.js';
 import { confirmDialog } from 'primereact/confirmdialog'
 import Loading from '../Loading';
@@ -13,7 +13,7 @@ const RAnalysis = ({history}: any) => {
 		finish: false
 	})
 	const location: any = useLocation();
-    const {image, secondImage, from, relation} = location?.state;
+    const {image, secondImage, from, relation, lan} = location?.state;
 	let imageRef1: any = React.createRef();
 	let imageRef2: any = React.createRef();
 	React.useEffect(() => {
@@ -87,36 +87,36 @@ const RAnalysis = ({history}: any) => {
 				<div style={{width: "2rem", fontSize: "1.5rem", color: "white"}}>
 					<i className="fas fa-home" onClick={() => history.push("/")}></i>
 				</div>
-				<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 우리 얼굴</div>
-				<SidebarComponent />
+				<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? "얼척(尺)이가 보는 우리 얼굴" : "Our faces that Facepago sees"}</div>
+				<SidebarComponent lan={lan}/>
 			</div>
 			<div style={{backgroundColor: "#FFFFF6", width: "100%", height: "100%", maxWidth: "450px", textAlign: "center"}}> 
 				<>
 					<div className="container" style={{height: "37vh",  display: `${data.finish ? "flex" : "none"}`, justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "5vw"}}>
 						<div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "0.5rem"}}>
 							<img ref={(ref) => imageRef1 = ref} style={{width: "40vw", height: "30vh", maxWidth: "170px"}}></img>
-							<label>사진 1</label>
+							<label>{lan === "ko" ? "사진 1" : "Photo 1"}</label>
 						</div>
 						<div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "0.5rem"}}>
 							<img ref={(ref) => imageRef2 = ref} style={{width: "40vw", height: "30vh", maxWidth: "170px"}}></img>
-							<label>사진 2</label>
+							<label>{lan === "ko" ? "사진 2" : "Photo 2"}</label>
 						</div>
 					</div>
 					{data.finish ?
 						<>
 						<div style={{display: "flex", justifyContent: "center", fontFamily: "EliceDigitalBaeum_Bold"}}>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "30vw", maxHeight: "16.5vh", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>안 닮음</div>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>조금 닮음</div>
-							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>매우 닮음</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "first" ? 600: 300, width: "30vw", border: "1px solid rgb(0, 0, 0, 0.2)", height: "30vw", maxHeight: "16.5vh", borderRadius: "5rem", background: `${sFlag === "first" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>{lan === "ko" ? "안 닮음" : "Different"}</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "second" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "second" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>{lan === "ko" ? "조금 닮음" : "A bit similar"}</div>
+							<div className="container-ct m-1" style={{color: "#8B4513", fontWeight: sFlag === "third" ? 600: 300, border: "1px solid rgb(0, 0, 0, 0.2)", borderRadius: "5rem", width: "30vw", height: "30vw", maxHeight: "16.5vh", background: `${sFlag === "third" ? "#D6C1B0": "white"}`, boxShadow: `3px 3px 3px 1px gray`}}>{lan === "ko" ? "매우 닮음" : "Very similar"}</div>
 						</div>
-						<div className="container" style={{fontSize: "6.5vw", padding: "0.5rem", paddingTop: "1rem", filter: "brightness(0.5)", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{"만큼 닮아있어요"}</div>
-						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "6vw", textAlign: "center", fontFamily: "MapoBackpacking, cursive", minHeight: "30px"}}>{Relation[relation][sFlag]}</pre>
+						<div className="container" style={{fontSize: "6.5vw", padding: "0.5rem", paddingTop: "1rem", filter: "brightness(0.5)", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}><span style={{color: Color.third, fontWeight: 500}}>{(1 - data.distance + 0.15) * 100 > 100 ? `100% ` : `${(Math.floor((1 - data.distance + 0.15) * 100))}% ` }</span>&nbsp;{lan === "ko" ? "만큼 닮아있어요" : "similar"}</div>
+						<pre className="container" style={{width: "100%", height: "12vh", fontSize: "6vw", textAlign: "center", fontFamily: "MapoBackpacking, cursive", minHeight: "30px"}}>{lan === "ko" ? Relation[relation][sFlag] : EnRelation[relation][sFlag]}</pre>
 						<div style={{display: "flex", justifyContent: "center", height: "15vh", alignItems: "center"}}>
 							<pre style={{whiteSpace: "pre-wrap", wordBreak: "keep-all", textAlign: "center", width: "85%", fontFamily: "Pattaya, sans-serif", opacity: ".6", fontSize: "4.5vw"}}>{randomItem(Sentence.front)}<br />{"-Wise Saying-"}</pre>
 						</div>
 					</>
 					:
-					<Loading random={word}/>
+					<Loading random={word} lan={lan}/>
 					}
 				</>
 			</div>

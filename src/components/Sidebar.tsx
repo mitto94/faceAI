@@ -5,7 +5,7 @@ import { Button } from 'primereact/button';
 import { useHistory } from 'react-router-dom';
 import { SelectButton } from 'primereact/selectbutton';
 
-function SidebarComponent(): JSX.Element {
+function SidebarComponent({lan} : any): JSX.Element {
 	const [visible, setVisible] = React.useState(false);
 	const [value, setValue] = React.useState(null);
 	const history = useHistory();
@@ -27,13 +27,13 @@ function SidebarComponent(): JSX.Element {
 		<i className="pi pi-cog" style={{width: "2rem", fontSize: "1.5rem", color: "white"}} onClick={(e) => setVisible(true)}></i>
 		<Sidebar position="right" visible={visible} onHide={() => setVisible(false)}>
 			<div style={{display: "flex", flexDirection: "column", width: "100%", height: "100%"}}>
-				<h1 style={{ fontWeight: 'normal', textAlign: "center" }}>설정</h1>
+				<h1 style={{ fontWeight: 'normal', textAlign: "center" }}>{lan === "ko" ? "설정" : "Setting"}</h1>
 				<div style={{height: "13vh", width: "100%"}}>
 					<Button type="button"
 					onClick={() => {
 						setVisible(false);
 						history.push("/")
-						}} label="홈 화면으로"style={{background: "#524F4A", border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
+						}} label={lan === "ko" ? "홈 화면으로" : "Going back to home"} style={{background: "#524F4A", border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
 					/>
 				</div>
 				<div style={{height: "13vh", width: "100%"}}>
@@ -41,7 +41,7 @@ function SidebarComponent(): JSX.Element {
 				onClick={() => {
 					setVisible(false);
 					history.push("age")
-					}} label="나이 확인하기"style={{background: Color["first"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
+					}} label={lan === "ko" ? "나이 확인하기" : "Check age"} style={{background: Color["first"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
 					/>
 				</div>
 				<div style={{height: "13vh", width: "100%"}}>
@@ -54,7 +54,7 @@ function SidebarComponent(): JSX.Element {
 							from: "second"
 						}
 					})
-					}} label="감정 확인하기"style={{background: Color["second"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
+					}} label={lan === "ko" ? "감정 확인하기" : "Check emotions"}style={{background: Color["second"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
 					/>
 				</div>
 				<div style={{height: "13vh", width: "100%"}}>
@@ -62,7 +62,7 @@ function SidebarComponent(): JSX.Element {
 				onClick={() => {
 					setVisible(false);
 					history.push("/relation")
-					}} label="얼굴 비교하기"style={{background: Color["third"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
+					}} label={lan === "ko" ? "얼굴 비교하기" : "Comparing faces"}style={{background: Color["third"], border: "none", height: "4rem", fontSize: "1.25rem", fontWeight: 700, margin: "1rem", width: "-webkit-fill-available"}}
 					/>
 				</div>
 				{/* <div className="container" style={{height: "25vh", width: "100%", flexDirection: "column", justifyContent: "flex-start"}}>

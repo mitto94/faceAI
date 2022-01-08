@@ -4,6 +4,11 @@ import SidebarComponent from '../components/Sidebar';
 
 const Home: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
+	const [lan, setLan] = React.useState("ko");
+	const toast = React.useRef(null) as any;
+	React.useEffect(() => {
+		setLan(navigator.language.substr(0,2));
+	}, []);
 	// React.useEffect(() => {
 	// 	let home1: any = document.getElementById("home1");
 	// 	if (!home1.getAttribute('data-aos')) {
@@ -31,42 +36,64 @@ const Home: React.FC = ({history}: any) => {
 		<div style={{height: "100%", display: "flex", flexDirection: "column", background: Color.first, overflow: "hidden"}}>
 			<div className="container" style={{background: Color["zero"], width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 				<div style={{width: "2rem"}}></div>
-	 			<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 얼굴</div>
-	 			<SidebarComponent />
+	 			<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? '얼척(尺)이가 보는 나의 얼굴' : 'My face that Facepago sees'}</div>
+	 			<SidebarComponent lan={lan}/>
 	 		</div>
 			 <div style={{height: "45%", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "-5%", width: "100%", marginLeft: "33%"}}>
 				<div style={{width: "50%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
 					<img style={{width: "100%", maxHeight: "100%"}} src="robo.PNG"></img>
 				</div>
 				<div style={{width: "100%", marginTop: "45%", marginLeft: "-3%"}}>
-					<div id="home1" style={{height: "4%", width: "30%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "10rem"}}>
-						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking", fontSize: "4vw"}}>내가 얼척이야~</span>
+					<div id="home1" style={{height: "4%", width: "30%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "10rem", marginTop: "-55%"}}>
+						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking", fontSize: "4vw"}}>{lan === "ko" ? "내가 얼척이야~" : "I'm facepago~"}</span>
+						<div style={{width: 0, height: 0, borderLeft: "1vh solid transparent", borderRight: "1vh solid transparent", borderTop: "2vh solid white", position: "absolute", top: "40%", left: "-6%", transform: "rotate(180deg)"}}></div>
+					</div>
+					<div id="home1" style={{height: "4%", width: "40%", backgroundColor: "white", position: "absolute", borderRadius: "5rem", whiteSpace: "pre", maxWidth: "12rem", marginLeft: "-6.5%"}} onClick={() => {
+						if (lan === "ko") setLan("en");
+						else setLan("ko");
+					}}>
+						<span style={{width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "MapoBackpacking", fontSize: "4vw"}}>{lan === "ko" ? "Change it to English?" : "한국어로 바꿔줘?"}</span>
 						<div style={{width: 0, height: 0, borderLeft: "1vh solid transparent", borderRight: "1vh solid transparent", borderTop: "2vh solid white", position: "absolute", top: "0%", left: "-6%", transform: "rotate(120deg)"}}></div>
 					</div>
 				</div>
 			 </div>
-			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/age")}}>
+			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push({
+				pathname: "/age",
+				state: {
+					lan
+				}
+				})}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>너의 <span style={{color: "#c7c3af"}}>나이를</span> 내가 맞춰볼게! 🤔</span>
+					{lan === "ko" ? <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>너의 <span style={{color: "#c7c3af"}}>나이를</span> 내가 맞춰볼게! 🤔</span>
+					: <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>I'll guess your <span style={{color: "#c7c3af"}}>age</span>! 🤔</span>}
 				</div>
 			 </div>
 			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push({
 				pathname: "/age_photo",
 				state: {
-					from: "second"
+					from: "second",
+					lan
 				}
 				})}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>나도 <span style={{color: Color.second}}>감정을</span> 볼 수 있어~ 😎</span>
+					{lan === "ko" ? <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>나도 <span style={{color: Color.second}}>감정을</span> 볼 수 있어~ 😎</span>
+					: <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>I can see the <span style={{color: Color.second}}>emotions</span> too~ 😎</span>}
 				</div>
 			 </div>
-			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push("/relation")}}>
+			 <div style={{height: "10%", display: "flex", alignItems: "center"}} onClick={() => {history.push({
+				pathname: "/relation",
+				state: {
+					lan
+				}
+				})}}>
 			 	<div style={{position: "relative", background: Color.zero, borderRadius: "3.5rem", width: "80%", height: "70%", marginLeft: "10%", display: "flex", justifyContent: "center", alignItems: "center", marginTop: "8%"}}>
-					<span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
+					{lan === "ko" ? <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>얼마나 <span style={{color: Color.third}}>닮았는지</span> 궁금해? 👀</span>
+					: <span style={{fontFamily: "MapoBackpacking", fontSize: "5.5vw", color: "white"}}>How <span style={{color: Color.third}}>similar</span> would it be? 👀</span>}
 				</div>
 			 </div>
 			 <div id="home2" style={{height: "15%", display: "flex", justifyContent: "center", alignItems: "center", fontFamily: "EliceDigitalBaeum_Bold", fontSize: "5.5vw"}}>
-			 	위 말풍선을 클릭하여 확인해 보세요
+			 	{lan === "ko" ? "위 말풍선을 클릭하여 확인해 보세요" : "Please click the speech bubble"}
+				 {/* 위 말풍선을 클릭하여 확인해 보세요 */}
 			 </div>
 		</div>
 	)

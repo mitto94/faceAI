@@ -21,6 +21,23 @@ export const AgeSentence = {
 		"정확하게 예측 성공~\n사실 더 어려 보이세요 :)"
 	]
 }
+export const EnAgeSentence = {
+	under: [
+		"You look so young!",
+		"You're a baby face\nrecognized by AI!",
+		"I'm sure you'll get\na lot of compliments\nfor looking young?"
+	],
+	over: [
+		"Age... Is it important?",
+		"It's important that\nyour heart is young.",
+		"Age is just a number :)",
+		"I'm sure it's mature, right?",
+		"It's okay!\nou're going to find your age soon"
+	],
+	same: [
+		"Precisely predicted success~~\nActually, you look younger :)"
+	]
+}
 export const Relation : { [key: string]: any} = {
 	family: {
 		first: ["한쪽은 아빠, 한쪽은 엄마!"],
@@ -36,6 +53,24 @@ export const Relation : { [key: string]: any} = {
 		first: ["서로 다른 모습이\n매력으로 다가왔나 봐요!"],
 		second: ["둘이 너무 어울려요!"],
 		third: ["함께 지내다 보면 닮는다더니 ㅎㅎ"]
+	}
+	
+}
+export const EnRelation : { [key: string]: any} = {
+	family: {
+		first: ["One is dad, the other is mom!"],
+		second: ["It looks like a family\nbut it doesn't seem like it~"],
+		third: ["It's obviously family. lol"]
+	},
+	friend: {
+		first: ["It'll be more fun\nbecause it's different!"],
+		second: ["You're not offended\nare you?"],
+		third: ["Isn't it family, not friends?"]
+	},
+	couple: {
+		first: ["Your difference must have\ncome to each other as a charm!"],
+		second: ["You two look so good together!"],
+		third: ["It's a match made in heaven"]
 	}
 	
 }

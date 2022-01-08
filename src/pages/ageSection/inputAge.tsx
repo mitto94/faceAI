@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { Link, BrowserRouter as Router, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import { Color } from '../../faceAnalysis';
@@ -9,6 +9,8 @@ const InputAge: React.FC = ({history}: any) => {
 	const [visible, setVisible] = React.useState(false);
 	const [age, setAge] = React.useState();
 	let redd: any = React.useRef();
+	const location: any = useLocation();
+	const {lan} = location?.state;
 	React.useEffect(() => {
 		let ins: any = document.createElement('ins');
         let scr: any = document.createElement('script');
@@ -39,26 +41,27 @@ const InputAge: React.FC = ({history}: any) => {
 			<div style={{height: "100vh"}}>
         		<div className="container" style={{background: Color.zero, width: "100%", height: "10%", display: "flex", justifyContent: "space-around", paddingTop: ".75rem"}}>
 					<div style={{width: "2rem"}}></div>
-					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>얼척(尺)이가 보는 나의 나이</div>
-					<SidebarComponent />
+					<div className="container" style={{color: "white", fontSize: "5vw", fontWeight: 600}}>{lan === "ko" ? "얼척(尺)이가 보는 나의 나이" : "My age that Facepago sees"}</div>
+					<SidebarComponent lan={lan}/>
 				</div>
 				<div className="container" style={{height: "90%", flexDirection: "column" , backgroundColor: Color.first, filter: "brightness(1.4)"}}>
 					<div className="container">
 						<InputNumber inputStyle={{fontSize: "8vw", width: "5rem", textAlign: "center", marginLeft: "5rem", border: "1px solid gray"}} value={age} onValueChange={(e: any) => setAge(e.value)} min={0} max={140} />
-						<span style={{fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "8vw"}}>살</span>
+						<span style={{fontFamily: "EliceDigitalBaeum_Bold, sans-serif", fontSize: "8vw"}}>{lan === "ko" ? "살" : "yo"}</span>
 						<Button
 							onClick={() => {history.push({
 								pathname: "age_photo",
 								state: {
 									from: "first",
-									age: age === undefined ? 0 : age
+									age: age === undefined ? 0 : age,
+									lan
 							}
 							})}}
 							style={{width: "4.2rem", height: "4rem", marginLeft: "0.5rem", paddingTop: "0.25rem", background: Color["zero"], border: "none"}}
-							label="입력"
+							label={lan === "ko" ? "입력" : "Next"}
 						/>
 					</div>
-					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre>
+					<pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>{lan === "ko" ? "나이를 입력하신 후\n입력 버튼을 누르세요" : "Enter your age and\npress the Next button."}</pre>
 					{/* <pre className="container" style={{width: "100%", height: "20vh", textAlign: "center", fontSize: "1.45rem", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}} data-aos="zoom-in" data-aos-delay="200">{"나이를 입력하신 후\n입력 버튼을 누르세요"}</pre> */}
 				</div>
 				<div ref={(ref => redd = ref)} id="ad-banner" className="ad-banner" style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 0)", width: "320px", height: "100px"}}>
