@@ -92,7 +92,7 @@ const AgeAnalysis = ({history}: any) => {
 							<div style={{display: "flex", justifyContent: "center", paddingTop: "10%", fontFamily: "EliceDigitalBaeum_Bold, sans-serif"}}>
 								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "29vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
 								{lan === "ko" ? <div style={{fontWeight: 600, fontSize: "6.5vw", margin: "0.55rem"}}>실제 나이</div>
-									: <div style={{fontWeight: 600, fontSize: "5.5vw", margin: "0.55rem"}}>Predicted age</div>}
+									: <div style={{fontWeight: 600, fontSize: "5.5vw", margin: "0.55rem"}}>Real age</div>}
 									<span style={{fontWeight: 550, fontSize: "6.5vw"}}>{age} {lan === "ko" ? " 살" : " yo"}</span>
 								</div>
 								<div className="m-2" style={{display: "flex", alignItems: "center", flexDirection: "column", width: "45vw", height: "29vw", background: "white", borderRadius: "0.5rem", boxShadow: "2px 2px 2px 2px #999", border: "1px solid rgba(0, 0, 0, 0.5)", maxHeight: "200px"}}>
