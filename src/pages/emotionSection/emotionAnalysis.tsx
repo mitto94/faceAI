@@ -61,20 +61,32 @@ const EmotionAnalysis: React.FC = ({history}: any) => {
 	}, [show])
 	const confirm = () => {
 		confirmDialog({
-			message: '얼굴을 인식하지 못했습니다. 사진을 다시 찍으시겠습니까?',
-			header: '혹시.. 천사신가요?',
+			message: lan === "ko" ? '얼굴을 인식하지 못했습니다. 사진을 다시 찍으시겠습니까?' : "I didn't recognize your face. Do you want to take a picture again?",
+        	header: lan === "ko" ? '혹시.. 천사신가요?' : "Are you... an angel?",
 			icon: 'pi pi-exclamation-triangle',
-			accept: () => {history.push({
-				pathname: "age_photo",
+			accept: () => history.push({
+				pathname: "/age_photo",
 				state: {
 					from: "second",
 					lan
 				}
-			})},
-			reject: () => history.push("/"),
-			onHide: () => history.push("/"),
+			}),
+			reject: () => history.push({
+				pathname: "/",
+				state: {
+					lan
+				}
+			}),
+			onHide: () => history.push({
+				pathname: "/age_photo",
+				state: {
+					from: "second",
+					lan
+				}
+			}),
 		});
 	}
+
 	let emotionHash = Object.keys(photoInfo.emotion).map(element => {
 		return {name: element , value: Math.sqrt(Math.sqrt(Math.sqrt(photoInfo.emotion[element as any])))}
 	});

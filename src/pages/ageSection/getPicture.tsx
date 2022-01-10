@@ -14,6 +14,7 @@ const GetPicture = ({history}: any) => {
 	const [showCamera, setShowCamera] = React.useState(false);
 	const location: any = useLocation();
 	const {from, age, lan} = location?.state;
+	console.log("ff", from)
 	// const lan = location?.state.lan as string;
 	React.useEffect(() => {
 		let ins: any = document.createElement('ins');

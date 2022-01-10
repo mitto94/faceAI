@@ -64,12 +64,27 @@ const AgeAnalysis = ({history}: any) => {
 	}, [show])
 	const confirm = () => {
     confirmDialog({
-        message: '얼굴을 인식하지 못했습니다. 사진을 다시 찍으시겠습니까?',
-        header: '혹시.. 천사신가요?',
+        message: lan === "ko" ? '얼굴을 인식하지 못했습니다. 사진을 다시 찍으시겠습니까?' : "I didn't recognize your face. Do you want to take a picture again?",
+        header: lan === "ko" ? '혹시.. 천사신가요?' : "Are you... an angel?",
         icon: 'pi pi-exclamation-triangle',
-        accept: () => history.push("age"),
-        reject: () => history.push("/"),
-        onHide: () => history.push("/"),
+        accept: () => history.push({
+			pathname: "/age",
+			state: {
+				lan
+			}
+		}),
+        reject: () => history.push({
+			pathname: "/",
+			state: {
+				lan
+			}
+		}),
+        onHide: () => history.push({
+			pathname: "/",
+			state: {
+				lan
+			}
+		}),
     });
 	}
 	return (
